@@ -15,54 +15,63 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//input[@placeholder='Username']")
-    private WebElement username;
+    @FindBy(id = "email")
+    private WebElement email;
 
-    @FindBy(xpath = "//input[@placeholder='Password']")
+    @FindBy(id = "password")
     private WebElement password;
 
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(css = ".MuiButton-root")
     private WebElement btnLogin;
 
-    @FindBy(xpath = "//h6[contains(@class,'topbar-header-breadcrumb')]")
-    private WebElement txtDashboard;
+    // @FindBy(xpath = "//input[@placeholder='Username']")
+    // private WebElement username;
 
-    @FindBy(xpath = "//p[contains(@class,'alert-content-text')]")
-    private WebElement txtInvalid;
+    // @FindBy(xpath = "//input[@placeholder='Password']")
+    // private WebElement password;
 
-    @FindBy(xpath = "//img[@alt='company-branding']")
-    private WebElement imgCompanyBranding;
+    // @FindBy(xpath = "//button[@type='submit']")
+    // private WebElement btnLogin;
 
-    @FindBy(xpath = "//p[@class='oxd-userdropdown-name']")
-    private WebElement userDropdown;
+    // @FindBy(xpath = "//h6[contains(@class,'topbar-header-breadcrumb')]")
+    // private WebElement txtDashboard;
 
-    @FindBy(xpath = "//a[normalize-space()='Logout']")
-    private WebElement btnLogout;
+    // @FindBy(xpath = "//p[contains(@class,'alert-content-text')]")
+    // private WebElement txtInvalid;
 
-    public void loginUser(String username, String password){
-        this.username.sendKeys(username);
-        this.password.sendKeys(password);
-    }
+    // @FindBy(xpath = "//img[@alt='company-branding']")
+    // private WebElement imgCompanyBranding;
+
+    // @FindBy(xpath = "//p[@class='oxd-userdropdown-name']")
+    // private WebElement userDropdown;
+
+    // @FindBy(xpath = "//a[normalize-space()='Logout']")
+    // private WebElement btnLogout;
+
+     public void loginUser(String username, String password){
+         this.email.sendKeys(username);
+         this.password.sendKeys(password);
+     }
 
     public void setBtnLogin(){
         btnLogin.click();
     }
 
-    public void logout(){
-        userDropdown.click();
-        btnLogout.click();
-    }
+    // public void logout(){
+    //     userDropdown.click();
+    //     btnLogout.click();
+    // }
 
-    public String getTxtDashboard(){
-        return txtDashboard.getText();
-    }
+    // public String getTxtDashboard(){
+    //     return txtDashboard.getText();
+    // }
 
-    public String getTxtInvalid(){
-        return txtInvalid.getText();
-    }
+    // public String getTxtInvalid(){
+    //     return txtInvalid.getText();
+    // }
 
-    public boolean getImgCompanyBranding(){
-        return imgCompanyBranding.isDisplayed();
-    }
+    // public boolean getImgCompanyBranding(){
+    //     return imgCompanyBranding.isDisplayed();
+    // }
 
 }

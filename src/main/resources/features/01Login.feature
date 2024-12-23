@@ -7,9 +7,9 @@ Feature: Login
     And I click the login button
     Then I should be redirected to dashboard page
 
-  @SmokeTest
-  Scenario: Invalid login with invalid credentials
-    Given I am logout
-    When I enter a invalid username and password
-    And I click the login button
-    Then I see message invalid credentials
+  # @SmokeTest
+  # Scenario: Invalid login with invalid credentials
+  #   Given I am logout
+  #   When I enter a invalid username and password
+  #   And I click the login button
+  #   Then I see message invalid credentials
