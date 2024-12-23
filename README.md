@@ -8,20 +8,22 @@ Ensure that you have the following installed:
 
 - [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html) 17
 - [Apache Maven](https://maven.apache.org/download.cgi)
-- [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) 
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
 
 ## Project Setup
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/koswara-dev/selenium-automation-testing.git
+   git clone
    ```
 2. **Navigate to the project directory:**
+
    ```bash
    cd selenium-automation-testing
    ```
 
 3. **Open the project in IntelliJ IDEA:**
+
    - Open IntelliJ IDEA.
    - Go to `File -> Open`.
    - Browse to the directory where the project is cloned and click `OK`.
@@ -40,6 +42,7 @@ You can run the tests in various ways:
 ### Using Maven
 
 To execute all tests, run:
+
 ```bash
 mvn test
 ```
@@ -47,6 +50,7 @@ mvn test
 ### Using TestNG XML file
 
 Run tests specified in the `testng.xml` file:
+
 1. Locate the `testng.xml` file in the Project pane.
 2. Right-click on the `testng.xml` file.
 3. Select `Run 'testng.xml'`.
@@ -54,6 +58,7 @@ Run tests specified in the `testng.xml` file:
 ### Using Cucumber Feature files
 
 Each feature file contains scenarios written in Gherkin language. To run a specific feature file:
+
 1. Locate the feature file in the Project pane.
 2. Right-click on the feature file.
 3. Select `Run 'Feature: <feature-file-name>'`.
