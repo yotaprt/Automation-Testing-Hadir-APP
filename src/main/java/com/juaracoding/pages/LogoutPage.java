@@ -6,11 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class LogoutPage {
 
     private WebDriver driver;
 
-    public LoginPage(){
+    public LogoutPage(){
         this.driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
     }
@@ -24,43 +24,28 @@ public class LoginPage {
     @FindBy(css = ".MuiButton-root")
     private WebElement btnLogin;
 
-    // @FindBy(xpath = "//input[@placeholder='Username']")
-    // private WebElement username;
+    @FindBy(css = ".css-uajqx8")
+    private WebElement btnLogout;
 
-    // @FindBy(xpath = "//input[@placeholder='Password']")
-    // private WebElement password;
+    @FindBy( css = ".MuiButton-textInherit")
+    private WebElement profile;
 
-    // @FindBy(xpath = "//button[@type='submit']")
-    // private WebElement btnLogin;
-
-    // @FindBy(xpath = "//h6[contains(@class,'topbar-header-breadcrumb')]")
-    // private WebElement txtDashboard;
-
-    // @FindBy(xpath = "//p[contains(@class,'alert-content-text')]")
-    // private WebElement txtInvalid;
-
-    // @FindBy(xpath = "//img[@alt='company-branding']")
-    // private WebElement imgCompanyBranding;
-
-    // @FindBy(xpath = "//p[@class='oxd-userdropdown-name']")
-    // private WebElement userDropdown;
-
-    // @FindBy(xpath = "//a[normalize-space()='Logout']")
-    // private WebElement btnLogout;
 
      public void loginUser(String username, String password){
          this.email.sendKeys(username);
          this.password.sendKeys(password);
      }
 
-     public void loginvalid(String username, String password){
-         this.email.sendKeys(username);
-         this.password.sendKeys(password);
-         btnLogin.click();
-     }
-
     public void setBtnLogin(){
         btnLogin.click();
+    }
+
+    public void setBtnLogout(){
+        btnLogout.click();
+    }
+
+    public void setBtnProfile(){
+        profile.click();
     }
 
     // public void logout(){
