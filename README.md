@@ -14,7 +14,7 @@ Ensure that you have the following installed:
 
 1. **Clone the repository:**
    ```bash
-   git clone
+   git clone https://gitlab.com/jc-sqa-19-kelompok-4/sqa-19_juaracoding_kelompok-4
    ```
 2. **Navigate to the project directory:**
 
