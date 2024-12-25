@@ -12,3 +12,8 @@ Feature: History Absensi
     When I enter user a valid username and password and login absensi
     And I click the login button absensi
     Then I should be redirected to dashboard history absensi 2
+  # Scenario: Successful login user with valid credentials absensi and back to menu
+  #   Given I am on the login user absensi
+  #   When I enter user a valid username and password and login absensi
+  #   And I click the login button absensi
+  #   Then I should be redirected to dashboard history absensi and back to menu

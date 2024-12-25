@@ -34,6 +34,9 @@ public class HistoryAbsensi {
   @FindBy(xpath = "//div[@class='MuiBox-root css-1dovkig']/div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-isbt42']/div[1]//div[@class='MuiBox-root css-11uwjng']")
   private WebElement btnAbsensi;
 
+  @FindBy(css = ".feather")
+  private WebElement btnBack;
+
   public void loginUser(String username, String password) {
     this.email.sendKeys(username);
     this.password.sendKeys(password);
@@ -50,6 +53,10 @@ public class HistoryAbsensi {
 
   public void setBtnAbsensi(){
   btnAbsensi.click();
+  }
+
+  public void setBtnBack(){
+    btnBack.click();
   }
 
 
