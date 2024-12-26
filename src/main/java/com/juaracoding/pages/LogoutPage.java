@@ -48,21 +48,4 @@ public class LogoutPage {
         profile.click();
     }
 
-    // public void logout(){
-    //     userDropdown.click();
-    //     btnLogout.click();
-    // }
-
-    // public String getTxtDashboard(){
-    //     return txtDashboard.getText();
-    // }
-
-    // public String getTxtInvalid(){
-    //     return txtInvalid.getText();
-    // }
-
-    // public boolean getImgCompanyBranding(){
-    //     return imgCompanyBranding.isDisplayed();
-    // }
-
 }
