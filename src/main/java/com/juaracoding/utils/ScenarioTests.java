@@ -8,7 +8,9 @@ public enum ScenarioTests {
     T2("Invalid login with invalid credentials"),
     // feature recruitment
     T3("Admin add new candidate"),
-    T4("User");
+    T4("User"),
+    T5("test");
+
 
     private String scenarioTestName;
 

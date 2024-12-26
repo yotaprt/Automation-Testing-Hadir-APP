@@ -16,6 +16,7 @@ import io.cucumber.java.en.When;
 
 public class HistoryAbsensiTest {
     private static WebDriver driver;
+    
 
     private static ExtentTest extentTest;
 
@@ -27,8 +28,9 @@ public class HistoryAbsensiTest {
     }
 
     @Given("I am on the login user")
-    public void Iamontheloginuser() {
+    public void Iamontheloginuser() throws InterruptedException {
         driver.get(Constants.URLUser);
+        Thread.sleep(3000);
         extentTest.log(LogStatus.PASS, "I am on the login user");
     }
 
@@ -42,7 +44,7 @@ public class HistoryAbsensiTest {
     @And("I click the login button selengkapnya")
     public void Iclicktheloginbuttonselengkapnya() throws InterruptedException {
         Thread.sleep(3000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,1000)");
          historyAbsensi.setBtnHistoryAbsensi();
     }
 
@@ -85,32 +87,31 @@ public class HistoryAbsensiTest {
 
     ////////////////////////////////////////////////////////////////////////
 
-    // @Given("I am on the login user")
-    // public void Iamontheloginuserback() {
-    //     driver.get(Constants.URLUser);
-    //     extentTest.log(LogStatus.PASS, "I am on the login user");
-    // }
+    @Given("berada di login")
+    public void beradadilogin() {
+        driver.get(Constants.URLUser);
+        extentTest.log(LogStatus.PASS, "berada di login");
+    }
 
-    // @When("I enter user a valid username and password and login")
-    // public void Ienteruseravalidusernameandpasswordandloginback() {
-    //     historyAbsensi.loginUser("dumy@test.com", "12345678");
-    //     historyAbsensi.setBtnLogin();
-    //     // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
-    // }
+    @When("Memasukan username dan password")
+    public void memasukanusernameandpassword() {
+        historyAbsensi.loginUser("dumy@test.com", "12345678");
+        historyAbsensi.setBtnLogin();
+        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+    }
 
-    // @And("I click the login button selengkapnya")
-    // public void Iclicktheloginbuttonselengkapnyaback() throws InterruptedException {
-    //     Thread.sleep(3000);
-    //     ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");
-    //      historyAbsensi.setBtnHistoryAbsensi();
-    //      historyAbsensi.setBtnBack();
-    //      Assert.assertEquals(driver.getCurrentUrl(),"https://magang.dikahadir.com/apps/absent/activity");
-    // }
+    @And("Klik button login")
+    public void klikbuttonlogin() throws InterruptedException {
+        Thread.sleep(3000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");
+         historyAbsensi.setBtnHistoryAbsensi();
+    }
 
-    // @Then("I should be redirected to dashboard history absensi and back to menu")
-    // public void Ishouldberedirectedtodashboardhistoryabsensiandbacktomenu() throws InterruptedException {
-    //     Thread.sleep(3000);
-    //     Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/apps/absent");
-    // }
+    @Then("Masuk halaman history absensi dan back ke menu utama")
+    public void masukhalamanhistoryabsensidanbackkemenuutama()throws InterruptedException {
+        Thread.sleep(3000);
+        historyAbsensi.setBtnBack();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/apps/absent");
+    }
     
 }
