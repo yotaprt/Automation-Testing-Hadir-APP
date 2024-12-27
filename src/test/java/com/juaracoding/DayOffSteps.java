@@ -1,6 +1,7 @@
 package com.juaracoding;
 
 import com.juaracoding.pages.LoginPage;
+import com.juaracoding.pages.DayOffPage;
 import com.juaracoding.utils.Constants;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -19,78 +20,37 @@ public class DayOffSteps {
 
     private static LoginPage loginPage = new LoginPage();
 
+    private static DayOffPage dayoffPage = new DayOffPage();
+
     public DayOffSteps(){
         driver = Hooks.driver;
         extentTest = Hooks.extentTest;
     }
 
 
-    @Given("I am on the login page")
-    public void i_am_on_the_login_page(){
+    @Given("User Successfully Login")
+    public void userSuccessfullyLogin() {
         driver.get(Constants.URL);
         extentTest.log(LogStatus.PASS,"I am on the login page");
+        loginPage.loginvalid("admin@hadir.com","admin@hadir");
     }
 
-    @When("I enter a valid username and password")
-    public void i_enter_a_valid_username_and_password(){
-        loginPage.loginUser("admin@hadir.com","admin@hadir");
-        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+    @When("User open navbar menu")
+    public void userOpenNavbarMenu() {
+        extentTest.log(LogStatus.PASS,"User open navbar menu");
+        dayoffPage.clickDayoffMenuInManagement();
     }
 
-    @And("I click the login button")
-    public void i_click_the_login_button(){
-        loginPage.setBtnLogin();
+    @And("Click Dayoff menu in management")
+    public void clickDayoffMenuInManagement() {
+        dayoffPage.clickDayoffMenu();
     }
 
-    @Then("I should be redirected to dashboard page")
-    public void i_should_be_redirected_to_dashboard_page()throws InterruptedException {
-    Thread.sleep(5000);
-    Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/dashboards/pending");
-    extentTest.log(LogStatus.PASS,"I should be redirected to dashboard page");
+    @Then("User navigated to the Day Off page")
+    public void userNavigatedToTheDayOffPage() throws InterruptedException {
+        extentTest.log(LogStatus.PASS,"User navigated to the Day Off page");
+        Thread.sleep(5000);
+        Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/management/day-off");
     }
-
-    // TCC.HR.00001
-    // @Given("I am on the login page")
-    // public void i_am_on_the_login_page(){
-    //     driver.get(Constants.URL);
-    //     extentTest.log(LogStatus.PASS,"I am on the login page");
-    // }
-
-    // @When("I enter a valid username and password")
-    // public void i_enter_a_valid_username_and_password(){
-    //     loginPage.loginUser("Admin","admin123");
-    //     extentTest.log(LogStatus.PASS,"I enter a valid username and password");
-    // }
-
-    // @And("I click the login button")
-    // public void i_click_the_login_button(){
-    //     loginPage.setBtnLogin();
-    //     extentTest.log(LogStatus.PASS,"I click the login button");
-    // }
-
-    // @Then("I should be redirected to dashboard page")
-    // public void i_should_be_redirected_to_dashboard_page(){
-    //     Assert.assertEquals(loginPage.getTxtDashboard(),"Dashboard");
-    //     extentTest.log(LogStatus.PASS,"I should be redirected to dashboard page");
-    // }
-
-    // // TCC.HR.00002
-    // @Given("I am logout")
-    // public void i_am_logout(){
-    //     loginPage.logout();
-    //     extentTest.log(LogStatus.PASS,"I am logout");
-    // }
-
-    // @When("I enter a invalid username and password")
-    // public void i_enter_a_invalid_username_and_password(){
-    //     loginPage.loginUser("invalid","invalid");
-    //     extentTest.log(LogStatus.PASS,"I enter a invalid username and password");
-    // }
-
-    // @Then("I see message invalid credentials")
-    // public void i_see_message_invalid_credentials(){
-    //     Assert.assertEquals(loginPage.getTxtInvalid(),"Invalid credentials");
-    //     extentTest.log(LogStatus.PASS,"I see message invalid credentials");
-    // }
 
 }

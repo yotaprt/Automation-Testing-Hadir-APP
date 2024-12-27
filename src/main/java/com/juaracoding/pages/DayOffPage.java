@@ -33,4 +33,19 @@ public class DayOffPage {
     @FindBy(xpath = "//div[@class='MuiBox-root css-76jx17']/div[2]//h5[.='Deskripsi']")
     private WebElement descLibNas;
 
+    @FindBy(css = ".css-old1by > div:nth-of-type(4) .sidebar__item")
+    private WebElement managementNavBar;
+
+    @FindBy(xpath = "//div[15]/div[@class='MuiBox-root css-1pd2x36']")
+    private WebElement dayoffNavBar;
+
+
+    public void clickDayoffMenuInManagement(){
+        managementNavBar.click();    
+    }
+
+    public void clickDayoffMenu(){
+        dayoffNavBar.click();    
+    }
+
 }
