@@ -41,16 +41,41 @@ public class DayOffSteps {
         dayoffPage.clickDayoffMenuInManagement();
     }
 
-    @And("Click Dayoff menu in management")
-    public void clickDayoffMenuInManagement() {
+    @And("User clicks on the Day off menu under Management")
+    public void UserclicksontheDayoffmenuunderManagement() {
         dayoffPage.clickDayoffMenu();
     }
 
     @Then("User navigated to the Day Off page")
     public void userNavigatedToTheDayOffPage() throws InterruptedException {
         extentTest.log(LogStatus.PASS,"User navigated to the Day Off page");
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/management/day-off");
     }
 
+    //////////////////////////////////////////////////////////////////////////
+
+
+    @Then("The system displays Cuti Bersama and Cuti Nasional data on the Day Off page")
+    public void theSystemDisplaysCutiBersamaAndCutiNasionalDataOnTheDayOffPage() throws InterruptedException {
+        Thread.sleep(2000);
+        Assert.assertTrue(dayoffPage.isCutiBersamaVisible(), "Cuti Bersama Visible");
+        Assert.assertTrue(dayoffPage.isLiburanNasionalVisible(), "Liburan Nasional Visible");
+        // Assert.assertTrue(dayoffPage.dayoffNavBar.isDisplayed());
+    }
+
+    @Then("The system displays Cuti Bersama and Cuti Nasional data with Date and Description columns completely")
+    public void theSystemDisplaysCutiBersamaAndCutiNasionalDataWithDateAndDescriptionColumnsCompletely() throws InterruptedException {
+        Thread.sleep(2000);
+        Assert.assertTrue(dayoffPage.isTglCutBerVisible(), "Tanggal Cuti Bersama Visible");
+        Assert.assertTrue(dayoffPage.isDescCutBerVisible(), "Deskripsi Cuti Bersama Visible");
+        
+    }
+
+    @Then("The system displays complete and correct Cuti Bersama and Cuti Nasional date")
+    public void theSystemDisplaysCompleteAndCorrectCutiBersamaAndCutiNasionalDate()throws InterruptedException  {
+        Assert.assertTrue(dayoffPage.CutiBersamaTableVisible(), "Cuti Bersama Table Visible");
+        Assert.assertTrue(dayoffPage.LiburanNasionalTableVisible(), "Liburan Nasional Table Visible");
+        Thread.sleep(2000);
+    }
 }

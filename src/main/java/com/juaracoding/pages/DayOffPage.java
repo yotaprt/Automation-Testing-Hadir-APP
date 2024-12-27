@@ -39,6 +39,51 @@ public class DayOffPage {
     @FindBy(xpath = "//div[15]/div[@class='MuiBox-root css-1pd2x36']")
     private WebElement dayoffNavBar;
 
+    @FindBy(xpath = "//table[contains(.,'TanggalDeskripsiJumat, 9 Februari 2024Tahun Baru ImlekJumat, 10 Mei 2024Kenaikan')]")
+    private WebElement CutiBersamaTable;
+
+    @FindBy(xpath = "//table[contains(.,\"TanggalDeskripsiKamis, 8 Februari 2024Isra’ Mi'raj Nabi Muhammad SAW 1445 Hijria\")]")
+    private WebElement LiburanNasionalTable;
+
+    public boolean isCutiBersamaVisible() {
+        return CutiBersama.isDisplayed();
+    }
+
+    public boolean isLiburanNasionalVisible() {
+        return LiburanNasional.isDisplayed();
+    }
+
+    public boolean isTglCutBerVisible() {
+        return tglCutBer.isDisplayed();
+    }
+
+    public boolean isDescCutBerVisible() {
+        return descCutBer.isDisplayed();
+    }
+
+    public boolean isTglLibNasVisible() {
+        return tglLibNas.isDisplayed();
+    }
+
+    public boolean isDescLibNasVisible() {
+        return descLibNas.isDisplayed();
+    }
+
+    public boolean isManagementNavBarVisible() {
+        return managementNavBar.isDisplayed();
+    }
+
+    public boolean isDayoffNavBarVisible() {
+        return dayoffNavBar.isDisplayed();
+    }
+
+    public boolean CutiBersamaTableVisible() {
+        return CutiBersamaTable.isDisplayed();
+    }
+
+    public boolean LiburanNasionalTableVisible() {
+        return LiburanNasionalTable.isDisplayed();
+    }
 
     public void clickDayoffMenuInManagement(){
         managementNavBar.click();    
@@ -46,6 +91,10 @@ public class DayOffPage {
 
     public void clickDayoffMenu(){
         dayoffNavBar.click();    
+    }
+
+    public WebElement getCutiBersama() {
+        return CutiBersama;
     }
 
 }

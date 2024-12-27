@@ -2,12 +2,7 @@ package com.juaracoding.utils;
 
 public enum ScenarioTests {
 
-    // T1 - T10000
-    // feature login
-    T1("Successful login with valid credentials"),
-    T2("Invalid login with invalid credentials"),
-    // feature recruitment
-    T3("Admin add new candidate");
+     T1("Login with email and password valid");
 
     private String scenarioTestName;
 
