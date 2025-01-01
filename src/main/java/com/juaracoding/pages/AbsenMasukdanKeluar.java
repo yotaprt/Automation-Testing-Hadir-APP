@@ -7,10 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.juaracoding.drivers.DriverSingleton;
 
-public class LoginUser {
+public class AbsenMasukdanKeluar {
   private WebDriver driver;
 
-  public LoginUser(){
+  public AbsenMasukdanKeluar(){
         this.driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
     }
@@ -44,6 +44,18 @@ public class LoginUser {
 
     @FindBy(xpath = "//input[@name='notes']")
     private WebElement notes;
+
+    @FindBy(css = ".css-1fl1h2m")
+    private WebElement btnAbsenKeluar;
+
+    @FindBy(xpath = "//textarea[@name='notes']")
+    private WebElement notesAbsenKeluar;
+
+    @FindBy(css = ".MuiButton-fullWidth")
+    private WebElement btnAbsenKeluarPulang;
+
+    @FindBy(css = ".MuiButton-fullWidth")
+    private WebElement btnSubmitAbsenMasuk;
 
     public void loginUser(String username, String password){
       this.email.sendKeys(username);
@@ -88,4 +100,21 @@ public void setNotes(String notes){
     this.notes.sendKeys(notes);
 }
 
+public void setBtnAbsenKeluar() {
+    btnAbsenKeluar.click();
 }
+
+public void setBtnAbsenKeluarPulang() {
+    btnAbsenKeluarPulang.click();
+}
+
+public void setNotesAbsenKeluar(String notesAbsenKeluar) {
+    this.notesAbsenKeluar.sendKeys(notesAbsenKeluar);
+}
+
+public void setBtnSubmitAbsenMasuk() {
+    btnSubmitAbsenMasuk.click();
+}
+
+}
+

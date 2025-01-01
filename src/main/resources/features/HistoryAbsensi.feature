@@ -16,5 +16,5 @@ Feature: History Absensi
   Scenario: Menguji button back
     Given berada di login
     When Memasukan username dan password
-    And Klik button login
+    And Klik button absensi
     Then Masuk halaman history absensi dan back ke menu utama
