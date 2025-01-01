@@ -4,8 +4,9 @@ package com.juaracoding;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-
+import com.juaracoding.drivers.strategies.Chrome;
 import com.juaracoding.pages.AbsenMasukdanKeluar;
 import com.juaracoding.utils.Constants;
 import com.juaracoding.utils.Utils;
@@ -16,12 +17,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
+
 public class AbsenMasukdanKeluarTest {
   private static WebDriver driver;
   ChromeOptions options;
     private static ExtentTest extentTest;
 
     private static AbsenMasukdanKeluar absenmasukdankeluar = new AbsenMasukdanKeluar();
+
+    private static Chrome chromeDriver = new Chrome();
 
     public AbsenMasukdanKeluarTest(){
         driver = Hooks.driver;
@@ -34,6 +38,8 @@ public class AbsenMasukdanKeluarTest {
     public void beradadiloginwfo(){
         driver.get(Constants.URLUser);
         extentTest.log(LogStatus.PASS,"Berada di halaman login WFO");
+        chromeDriver.setGeolocationSetting(2);
+        chromeDriver.setCameraSetting(2);
     }
 
 
