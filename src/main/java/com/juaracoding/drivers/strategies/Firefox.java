@@ -10,4 +10,9 @@ public class Firefox implements DriverStrategy {
         System.setProperty("webdriver.gecko.driver","./geckodriver/geckodriver.exe");
         return new FirefoxDriver();
     }
+    // public WebDriver setStrategyNegative() {
+    //     System.setProperty("webdriver.gecko.driver","./geckodriver/geckodriver.exe");
+    //     return new FirefoxDriver();
+    // }
+
 }
