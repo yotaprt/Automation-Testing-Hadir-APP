@@ -28,22 +28,30 @@ public class LogoutTest {
     }
 
 
-    @Given("Admin telah login")
-    public void Admintelahlogin(){
+    @Given("User already logged in")
+    public void Useralreadyloggedin(){
         driver.get(Constants.URL);
         loginPage.loginvalid("admin@hadir.com","admin@hadir");
         // extentTest.log(LogStatus.PASS,"I am on the login page");
     }
 
-    @When("Klik User Profile")
+    @When("User click proflie")
     public void KlikUserProfile(){
         logoutPage.setBtnProfile();
         // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
     }
 
-    @Then("Klik tombol Log Out")
-    public void i_should_be_redirected_to_dashboard_page()throws InterruptedException {
-    logoutPage.setBtnLogout();
-    extentTest.log(LogStatus.PASS,"I should be redirected to dashboard page");
+    @And("User click logout button")
+    public void Userclicklogoutbutton() throws InterruptedException {
+        Thread.sleep(2000);
+        logoutPage.setBtnLogout();
+    }
+
+    @Then("User navigated to the login page")
+    public void Usernavigatedtotheloginpage()throws InterruptedException {
+        Thread.sleep(2000);
+        extentTest.log(LogStatus.PASS,"User navigated to the login page");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/authentication/login");
+    
     }
 }

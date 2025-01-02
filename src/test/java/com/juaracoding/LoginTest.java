@@ -60,5 +60,13 @@ public class LoginTest {
         extentTest.log(LogStatus.PASS, "I should be redirected to dashboard page");
     }
 
+    @Then("User failed to login")
+    public void user_failed_to_login() throws InterruptedException {
+        Thread.sleep(1000);
+        Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/authentication/login");
+        extentTest.log(LogStatus.PASS, "User failed to login");
+    }
+
+    
 
 }

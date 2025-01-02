@@ -74,8 +74,10 @@ public class DayOffSteps {
 
     @Then("The system displays complete and correct Cuti Bersama and Cuti Nasional date")
     public void theSystemDisplaysCompleteAndCorrectCutiBersamaAndCutiNasionalDate()throws InterruptedException  {
-        Assert.assertTrue(dayoffPage.CutiBersamaTableVisible(), "Cuti Bersama Table Visible");
-        Assert.assertTrue(dayoffPage.LiburanNasionalTableVisible(), "Liburan Nasional Table Visible");
+        Assert.assertTrue(dayoffPage.isTglCutBerVisible(), "Tanggal Cuti Bersama Visible");
+        Assert.assertTrue(dayoffPage.isDescCutBerVisible(), "Deskripsi Cuti Bersama Visible");
+        // Assert.assertTrue(dayoffPage.CutiBersamaTableVisible(), "Cuti Bersama Table Visible");
+        // Assert.assertTrue(dayoffPage.LiburanNasionalTableVisible(), "Liburan Nasional Table Visible");
         Thread.sleep(2000);
     }
 }

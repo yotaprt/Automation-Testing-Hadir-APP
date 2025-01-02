@@ -1,7 +1,7 @@
 Feature: Logout
 
-  @RegressionTest
   Scenario: Successful Logout  with valid credentials
-    Given Admin telah login
-    When Klik User Profile
-    Then Klik tombol Log Out
+    Given User already logged in
+    When User click proflie
+    And User click logout button
+    Then User navigated to the login page

@@ -24,7 +24,7 @@ public class LogoutPage {
     @FindBy(css = ".MuiButton-root")
     private WebElement btnLogin;
 
-    @FindBy(css = ".css-uajqx8")
+    @FindBy(xpath = "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-uajqx8']")
     private WebElement btnLogout;
 
     @FindBy( css = ".MuiButton-textInherit")
