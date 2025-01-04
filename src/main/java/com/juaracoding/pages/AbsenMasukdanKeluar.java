@@ -1,11 +1,15 @@
 package com.juaracoding.pages;
 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import com.juaracoding.drivers.DriverSingleton;
+import com.juaracoding.utils.Utils;
 
 public class AbsenMasukdanKeluar {
   private WebDriver driver;
@@ -74,7 +78,29 @@ public class AbsenMasukdanKeluar {
 
  public void setBtnAbsenMasuk(){
      btnAbsenMasuk.click();
- }
+     try {
+        Robot robot = new Robot();
+        robot.delay(4000);
+        robot.keyPress(KeyEvent.VK_TAB);
+        robot.keyRelease(KeyEvent.VK_TAB);
+        robot.keyPress(KeyEvent.VK_TAB);
+        robot.keyPress(KeyEvent.VK_ENTER);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+public void setBtnAbsenMasukKameraMati(){
+    btnAbsenMasuk.click();
+    try {
+       Robot robot = new Robot();
+       robot.delay(2000);
+       robot.keyPress(KeyEvent.VK_ESCAPE);
+       robot.keyRelease(KeyEvent.VK_ENTER);
+   } catch (Exception e) {
+       e.printStackTrace();
+   }
+}
 
  public void setBtnShootCamera(){
      btnShootCamera.click();

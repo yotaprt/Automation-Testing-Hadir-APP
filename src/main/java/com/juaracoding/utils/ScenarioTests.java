@@ -9,7 +9,8 @@ public enum ScenarioTests {
     // feature recruitment
     T3("Admin add new candidate"),
     T4("User"),
-    T5("test");
+    T5("test"),
+    T6("ss");
 
 
     private String scenarioTestName;
