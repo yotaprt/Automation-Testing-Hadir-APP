@@ -2,7 +2,7 @@ package com.juaracoding.utils;
 
 public enum ScenarioTests {
 
-     T1("Login with email and password valid");
+     T1("Test Scenario");
 
     private String scenarioTestName;
 

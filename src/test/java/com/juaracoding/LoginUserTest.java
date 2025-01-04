@@ -34,12 +34,13 @@ public class LoginUserTest {
     @When("I enter user a valid username and password")
     public void Ienteruseravalidusernameandpassword(){
         loginUser.loginUser("dumy@test.com","12345678");
-        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+        extentTest.log(LogStatus.PASS,"I enter a valid username and password");
     }
 
     @And("I click the login button user")
     public void Iclicktheloginbuttonuser(){
         loginUser.setBtnLogin();
+        extentTest.log(LogStatus.PASS,"I click the login button user");
     }
 
     @Then("I should be redirected to dashboard page user")

@@ -47,7 +47,7 @@ public class AbsenMasukdanKeluarTest {
     public void memasukanusernameandpasswordyangvalidwfo(){
         absenmasukdankeluar.loginUser("dumy@test.com","12345678");
         absenmasukdankeluar.setBtnLogin();
-        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+        extentTest.log(LogStatus.PASS,"I enter a valid username and password");
     }
 
     @And("Melakukan Absen Masuk WFO")
@@ -61,6 +61,7 @@ public class AbsenMasukdanKeluarTest {
       Utils.delay(3);
       absenmasukdankeluar.setNotes("Absen Masuk WFO");
       // Utils.delay(2);
+      extentTest.log(LogStatus.PASS,"Melakukan Absen Masuk WFO");
       // absenmasukdankeluar.setBtnSubmitAbsenMasuk();
     }
 
@@ -84,7 +85,7 @@ public class AbsenMasukdanKeluarTest {
     public void MemasukanusernamedanpasswordyangvalidWFH(){
       absenmasukdankeluar.loginUser("dumy@test.com","12345678");
       absenmasukdankeluar.setBtnLogin();
-        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+      extentTest.log(LogStatus.PASS,"I enter a valid username and password");
     }
 
     @And("Melakukan Absen Masuk WFH")
@@ -97,6 +98,7 @@ public class AbsenMasukdanKeluarTest {
       absenmasukdankeluar.setBtnTipeAbsenMasukWFH();
       Utils.delay(3);
       absenmasukdankeluar.setNotes("Absen Masuk WFH");
+      extentTest.log(LogStatus.PASS,"Melakukan Absen Masuk WFH");
       // Utils.delay(2);
       // absenmasukdankeluar.setBtnSubmitAbsenMasuk();
     }
@@ -154,6 +156,7 @@ public class AbsenMasukdanKeluarTest {
     public void Memasukanusernamedanpasswordyangvaliduntukabsenkeluar() {
       absenmasukdankeluar.loginUser("zaki@test.com","zakiyanto123");
       absenmasukdankeluar.setBtnLogin();
+      extentTest.log(LogStatus.PASS,"I enter a valid username and password");
         // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
     }
 
@@ -164,6 +167,7 @@ public class AbsenMasukdanKeluarTest {
       absenmasukdankeluar.setBtnAbsenKeluar();
       Utils.delay(3);
       absenmasukdankeluar.setNotesAbsenKeluar("Absen Keluar Pulang");
+      extentTest.log(LogStatus.PASS,"Melakukan Absen Keluar");
       // Utils.delay(2);
       // absenmasukdankeluar.setBtnAbsenKeluarPulang();
     }

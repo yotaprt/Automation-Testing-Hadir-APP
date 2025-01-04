@@ -72,18 +72,21 @@ public class KalenderSteps {
     @When("User klik button Tambahkan Kalender")
     public void user_klik_button_tambahkan_kalender() {
         kalenderPage.clickAddKalender();
+        extentTest.log(LogStatus.PASS,"User klik button Tambahkan Kalender");
         // Implementasi klik button Tambahkan Kalender
     }
 
     @When("User memasukkan nama untuk Kalender Unit yang ingin ditambahkan")
     public void user_memasukkan_nama_untuk_kalender_unit() {
         kalenderPage.inputKalenderName().sendKeys("Kalender Baru");
+        extentTest.log(LogStatus.PASS,"User memasukkan nama untuk Kalender Unit yang ingin ditambahkan");
         // Implementasi memasukkan nama untuk Kalender Unit
     }
 
     @When("User tidak mengisi field nama untuk Kalender Unit")
     public void user_tidak_mengisi_field_nama_untuk_kalender_unit() {
         kalenderPage.inputKalenderName();
+        extentTest.log(LogStatus.PASS,"User tidak mengisi field nama untuk Kalender Unit");
         // Implementasi tidak mengisi field nama
     }
 
@@ -91,6 +94,7 @@ public class KalenderSteps {
     public void user_klik_tambah() throws InterruptedException {
         Thread.sleep(2000);
         kalenderPage.clickSimpan();
+        extentTest.log(LogStatus.PASS,"User klik button Tambah");
         // Implementasi klik button Tambah
     }
 
@@ -98,14 +102,15 @@ public class KalenderSteps {
     public void kalender_unit_baru_berhasil_ditambahkan() throws InterruptedException {
         Thread.sleep(2000);
         Assert.assertTrue(kalenderPage.getInputtedNewKalender().getText().contains("Kalender Baru"));
+        extentTest.log(LogStatus.PASS,"Kalender Unit baru berhasil ditambahkan");
         // Implementasi verifikasi bahwa Kalender Unit baru berhasil ditambahkan
     }
 
     @Then("Kalender Unit baru gagal ditambahkan karena field nama adalah mandatory")
     public void kalender_unit_baru_gagal_ditambahkan_karena_field_nama_adalah_mandatory() {
         Assert.assertTrue(kalenderPage.getErrorText().isDisplayed());
+        extentTest.log(LogStatus.PASS,"Kalender Unit baru gagal ditambahkan karena field nama adalah mandatory");
         // Implementasi verifikasi bahwa Kalender Unit gagal ditambahkan
     }
-
 
 }

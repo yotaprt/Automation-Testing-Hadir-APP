@@ -1,6 +1,6 @@
-Feature: Logout functionality on magang.dikahadir
+Feature: Day off
 
-  Scenario: Direct access to day off page without login
+  Scenario: Navigate to Dayoff page via Navbar
     Given User Successfully Login
     When User open navbar menu
     And User clicks on the Day off menu under Management

@@ -32,12 +32,14 @@ public class LogoutTest {
     public void Useralreadyloggedin(){
         driver.get(Constants.URL);
         loginPage.loginvalid("admin@hadir.com","admin@hadir");
+        extentTest.log(LogStatus.PASS,"User already logged in");
         // extentTest.log(LogStatus.PASS,"I am on the login page");
     }
 
     @When("User click proflie")
     public void KlikUserProfile(){
         logoutPage.setBtnProfile();
+        extentTest.log(LogStatus.PASS,"User click proflie");
         // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
     }
 
@@ -45,6 +47,7 @@ public class LogoutTest {
     public void Userclicklogoutbutton() throws InterruptedException {
         Thread.sleep(2000);
         logoutPage.setBtnLogout();
+        extentTest.log(LogStatus.PASS,"User click logout button");
     }
 
     @Then("User navigated to the login page")
@@ -52,6 +55,5 @@ public class LogoutTest {
         Thread.sleep(2000);
         extentTest.log(LogStatus.PASS,"User navigated to the login page");
         Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/authentication/login");
-    
     }
 }

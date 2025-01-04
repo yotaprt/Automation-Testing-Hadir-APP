@@ -31,7 +31,7 @@ public class DayOffSteps {
     @Given("User Successfully Login")
     public void userSuccessfullyLogin() {
         driver.get(Constants.URL);
-        extentTest.log(LogStatus.PASS,"I am on the login page");
+        extentTest.log(LogStatus.PASS,"User Successfully Login");
         loginPage.loginvalid("admin@hadir.com","admin@hadir");
     }
 
@@ -44,6 +44,7 @@ public class DayOffSteps {
     @And("User clicks on the Day off menu under Management")
     public void UserclicksontheDayoffmenuunderManagement() {
         dayoffPage.clickDayoffMenu();
+        extentTest.log(LogStatus.PASS,"User clicks on the Day off menu under Management");
     }
 
     @Then("User navigated to the Day Off page")
@@ -61,6 +62,7 @@ public class DayOffSteps {
         Thread.sleep(2000);
         Assert.assertTrue(dayoffPage.isCutiBersamaVisible(), "Cuti Bersama Visible");
         Assert.assertTrue(dayoffPage.isLiburanNasionalVisible(), "Liburan Nasional Visible");
+        extentTest.log(LogStatus.PASS,"The system displays Cuti Bersama and Cuti Nasional data on the Day Off page");
         // Assert.assertTrue(dayoffPage.dayoffNavBar.isDisplayed());
     }
 
@@ -69,7 +71,7 @@ public class DayOffSteps {
         Thread.sleep(2000);
         Assert.assertTrue(dayoffPage.isTglCutBerVisible(), "Tanggal Cuti Bersama Visible");
         Assert.assertTrue(dayoffPage.isDescCutBerVisible(), "Deskripsi Cuti Bersama Visible");
-        
+        extentTest.log(LogStatus.PASS,"The system displays Cuti Bersama and Cuti Nasional data with Date and Description columns completely");
     }
 
     @Then("The system displays complete and correct Cuti Bersama and Cuti Nasional date")
@@ -79,5 +81,6 @@ public class DayOffSteps {
         // Assert.assertTrue(dayoffPage.CutiBersamaTableVisible(), "Cuti Bersama Table Visible");
         // Assert.assertTrue(dayoffPage.LiburanNasionalTableVisible(), "Liburan Nasional Table Visible");
         Thread.sleep(2000);
+        extentTest.log(LogStatus.PASS,"The system displays complete and correct Cuti Bersama and Cuti Nasional date");
     }
 }
