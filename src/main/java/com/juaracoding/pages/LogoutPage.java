@@ -21,13 +21,13 @@ public class LogoutPage {
     @FindBy(id = "password")
     private WebElement password;
 
-    @FindBy(css = ".MuiButton-root")
+    @FindBy(css = ".MuiButton-contained")
     private WebElement btnLogin;
 
-    @FindBy(xpath = "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-uajqx8']")
+    @FindBy(xpath = ".MuiButton-fullWidth")
     private WebElement btnLogout;
 
-    @FindBy( css = ".MuiButton-textInherit")
+    @FindBy( css = "..MuiButton-text")
     private WebElement profile;
 
 

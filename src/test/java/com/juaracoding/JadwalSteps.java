@@ -9,6 +9,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -59,7 +61,7 @@ public class JadwalSteps {
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// 
-    @Given("User berhasil login & berada di page Jadwal")
+    @Given("User berhasil login dengan akun admin & berada di page Jadwal")
     public void UserberhasilloginberadadipageJadwal() throws InterruptedException {
         driver.get(Constants.URL);
         extentTest.log(LogStatus.PASS,"User berhasil login & berada di page Jadwal");
@@ -76,7 +78,7 @@ public class JadwalSteps {
         // Implementasi klik tombol Tambah
     }
 
-    @When("User pilih Tipe Jadwal")
+    @And("User pilih Tipe Jadwal")
     public void user_pilih_tipe_jadwal() throws InterruptedException {
         extentTest.log(LogStatus.PASS,"User pilih Tipe Jadwal");
         Thread.sleep(2000);
@@ -86,20 +88,20 @@ public class JadwalSteps {
         // Implementasi memilih Tipe Jadwal
     }
 
-    @When("User pilih tanggal")
+    @And("User pilih Tanggal")
     public void user_pilih_tanggal() {
         extentTest.log(LogStatus.PASS,"User pilih tanggal");
         // Implementasi memilih tanggal
     }
 
-    @When("User masukkan jadwal kerja")
+    @And("User masukkan Jadwal Kerja")
     public void user_masukkan_jadwal_kerja() {
         extentTest.log(LogStatus.PASS,"User masukkan jadwal kerja");
         jadwalPage.inputNameJadwal("1Test Jadwal");
         // Implementasi memasukkan jadwal kerja
     }
 
-    @When("User pilih hari kerja")
+    @And("User pilih Hari Kerja")
     public void user_pilih_hari_kerja() throws InterruptedException {
         extentTest.log(LogStatus.PASS,"User pilih hari kerja");
         jadwalPage.clickInputHariKerja();
@@ -110,18 +112,29 @@ public class JadwalSteps {
         // Implementasi memilih hari kerja
     }
 
-    @When("User masukkan keterlambatan")
+    @And("User masukkan batas Keterlambatan")
     public void user_masukkan_keterlambatan() {
         extentTest.log(LogStatus.PASS,"User masukkan keterlambatan");
         jadwalPage.getInputToleransiKeterlambatan().sendKeys("10");;
         // Implementasi memasukkan keterlambatan
     }
 
-    @When("User klik tombol Simpan")
+    @And("User klik tombol Simpan")
     public void user_klik_tombol_simpan() {
         extentTest.log(LogStatus.PASS,"User klik tombol Simpan");
         jadwalPage.clickSimpan();
         // Implementasi klik tombol Simpan
+    }
+
+    @And("Kosongkan field Hari Kerja")
+    public void kosongkan_field_hari_kerja() {
+        extentTest.log(LogStatus.PASS,"Kosongkan field Hari Kerja");
+        // Implementasi kosongkan field Hari Kerja
+    }
+
+    @Then("Jadwal gagal ditambahkan karena field Hari Kerja adalah mandatory")
+    public void jadwal_gagal_ditambahkan_karena_field_hari_kerja_adalah_mandatory() {
+        Assert.assertTrue(driver.findElement(By.cssSelector(".MuiPaper-elevation6")).isDisplayed());
     }
 
     @Then("Jadwal baru berhasil ditambahkan & Tidak adanya error yang muncul")
@@ -129,5 +142,28 @@ public class JadwalSteps {
         Thread.sleep(2000);
         Assert.assertTrue(jadwalPage.getVerifyAddedJadwal().getText().contains("1Test Jadwal"));
         // Implementasi verifikasi bahwa jadwal baru berhasil ditambahkan dan tidak ada error
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////
+     @When("User klik action button")
+    public void user_klik_action_button() {
+        jadwalPage.clickActionJadwal();
+        extentTest.log(LogStatus.PASS,"User klik action button");
+        // Implementasi klik action button
+    }
+
+    @When("User klik Detail")
+    public void user_klik_detail() {
+        jadwalPage.clickDetailJadwal();
+        extentTest.log(LogStatus.PASS,"User klik Detail");
+        // Implementasi klik Detail
+    }
+
+    @Then("Mucul sebuah modal yang menampilkan detail dari Jadwal yang dipilih")
+    public void mucul_sebuah_modal_yang_menampilkan_detail_dari_jadwal_yang_dipilih() {
+        jadwalPage.verifymodalDetailJadwal();
+        extentTest.log(LogStatus.PASS,"Mucul sebuah modal yang menampilkan detail dari Jadwal yang dipilih");
+        // Implementasi verifikasi bahwa modal muncul dengan detail jadwal yang dipilih
     }
 }

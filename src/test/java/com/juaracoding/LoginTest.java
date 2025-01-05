@@ -27,14 +27,14 @@ public class LoginTest {
 
     @Given("I am on the login page")
     public void i_am_on_the_login_page(){
-        driver.get(Constants.URL);
-        Assert.assertEquals(driver.getCurrentUrl(), Constants.URL);
+        driver.get(Constants.URLUser);
+        Assert.assertEquals(driver.getCurrentUrl(), Constants.URLUser);
         extentTest.log(LogStatus.PASS, "I am on the login page");
     }
 
     @Given("I am logged in with email {string} and password {string}")
     public void i_am_logged_in_with_email_and_password(String email, String password) {
-        driver.get(Constants.URL);
+        driver.get(Constants.URLUser);
         Assert.assertEquals(driver.getCurrentUrl(), Constants.URL);
         loginPage.loginUser(email, password);
         loginPage.setBtnLogin();
@@ -56,14 +56,14 @@ public class LoginTest {
     @Then("I should be redirected to dashboard page")
     public void i_should_be_redirected_to_dashboard_page() throws InterruptedException {
         Thread.sleep(2000);
-        Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/dashboards/pending");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/apps/absent");
         extentTest.log(LogStatus.PASS, "I should be redirected to dashboard page");
     }
 
     @Then("User failed to login")
     public void user_failed_to_login() throws InterruptedException {
         Thread.sleep(1000);
-        Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/authentication/login");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/absen/login");
         extentTest.log(LogStatus.PASS, "User failed to login");
     }
 

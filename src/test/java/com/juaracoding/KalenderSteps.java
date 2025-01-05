@@ -76,9 +76,9 @@ public class KalenderSteps {
         // Implementasi klik button Tambahkan Kalender
     }
 
-    @When("User memasukkan nama untuk Kalender Unit yang ingin ditambahkan")
-    public void user_memasukkan_nama_untuk_kalender_unit() {
-        kalenderPage.inputKalenderName().sendKeys("Kalender Baru");
+    @When("User memasukkan nama untuk {string} yang ingin ditambahkan")
+    public void user_memasukkan_nama_untuk_kalender_unit(String kalenderUnit) {
+        kalenderPage.inputKalenderName().sendKeys(kalenderUnit);
         extentTest.log(LogStatus.PASS,"User memasukkan nama untuk Kalender Unit yang ingin ditambahkan");
         // Implementasi memasukkan nama untuk Kalender Unit
     }
@@ -98,10 +98,10 @@ public class KalenderSteps {
         // Implementasi klik button Tambah
     }
 
-    @Then("Kalender Unit baru berhasil ditambahkan")
-    public void kalender_unit_baru_berhasil_ditambahkan() throws InterruptedException {
+    @Then("{string} baru berhasil ditambahkan")
+    public void kalender_unit_baru_berhasil_ditambahkan(String kalenderUnit) throws InterruptedException {
         Thread.sleep(2000);
-        Assert.assertTrue(kalenderPage.getInputtedNewKalender().getText().contains("Kalender Baru"));
+        kalenderPage.verifyNamaKalenderUnit(kalenderUnit);
         extentTest.log(LogStatus.PASS,"Kalender Unit baru berhasil ditambahkan");
         // Implementasi verifikasi bahwa Kalender Unit baru berhasil ditambahkan
     }
@@ -113,4 +113,48 @@ public class KalenderSteps {
         // Implementasi verifikasi bahwa Kalender Unit gagal ditambahkan
     }
 
+    /////////////////////////////////////////////////////////////////////////
+    @When("User masukkan nama {string} yang ingin dicari pada field Search")
+    public void user_masukkan_nama_yang_ingin_dicari_pada_field_search(String kalenderUnit) {
+        kalenderPage.getInputSearch().sendKeys(kalenderUnit);
+        extentTest.log(LogStatus.PASS,"User masukkan nama Kalender Unit yang ingin dicari pada field Search");
+        // Implementasi memasukkan nama Kalender Unit yang ingin dicari pada field Search
+    }
+
+    @And("User klik button Search")
+    public void user_klik_button_search() {
+        kalenderPage.clickBtnSearch();
+        extentTest.log(LogStatus.PASS,"User klik button Search");
+        // Implementasi klik button Search
+    }
+
+    @Then("{string} yang ditampilkan pada table sesuai dengan nama yang diinputkan pada field Search")
+    public void kalender_unit_yang_ditampilkan_pada_table_sesuai_dengan_nama_yang_diinputkan(String kalenderUnit) throws InterruptedException {
+        Thread.sleep(1000);
+        kalenderPage.verifyNamaKalenderUnit(kalenderUnit);
+        extentTest.log(LogStatus.PASS,"Kalender Unit yang ditampilkan pada table sesuai dengan nama yang diinputkan pada field Search");
+        // Implementasi verifikasi bahwa Kalender Unit yang ditampilkan sesuai dengan nama yang dicari
+    }
+
+    ////////////////////////////////////////////////////////////////////////
+      @When("User masukkan nama Kalender Unit yang ingin dicari pada field Search")
+    public void user_masukkan_namakalenderunit_yang_ingin_dicari_pada_field_search() {
+        kalenderPage.getInputSearch().sendKeys("zack");
+        extentTest.log(LogStatus.PASS,"User masukkan nama Kalender Unit yang ingin dicari pada field Search");
+        // Implementasi memasukkan nama Kalender Unit yang ingin dicari pada field Search
+    }
+
+    @And("User klik button Reset")
+    public void user_klik_button_Reset() {
+        kalenderPage.clickReset();
+        extentTest.log(LogStatus.PASS,"User klik button Reset");
+        // Implementasi klik button Search
+    }
+
+    @Then("Data table ter-reset ulang seperti kondisi awal")
+    public void data_table_ter_reset_ulang_sebagai_kondisi_awal() {
+        Assert.assertEquals(driver.getCurrentUrl(),"https://magang.dikahadir.com/management/calendar");
+        extentTest.log(LogStatus.PASS,"Data table ter-reset ulang seperti kondisi awal");
+        // Implementasi verifikasi bahwa data table ter-reset ulang seperti kondisi awal
+    }
 }

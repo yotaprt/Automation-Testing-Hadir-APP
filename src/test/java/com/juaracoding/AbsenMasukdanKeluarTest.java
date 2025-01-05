@@ -20,12 +20,11 @@ import io.cucumber.java.en.When;
 
 public class AbsenMasukdanKeluarTest {
   private static WebDriver driver;
-  ChromeOptions options;
     private static ExtentTest extentTest;
 
     private static AbsenMasukdanKeluar absenmasukdankeluar = new AbsenMasukdanKeluar();
 
-    private static Chrome chromeDriver = new Chrome();
+    // private static Chrome chromeDriver = new Chrome();
 
     public AbsenMasukdanKeluarTest(){
         driver = Hooks.driver;
@@ -34,12 +33,11 @@ public class AbsenMasukdanKeluarTest {
   
 
     //////////////Scenario 1 Berhasil Absen Masuk WFO
-@Given("Berada di halaman login WFO")
+    @Given("Berada di halaman login WFO")
     public void beradadiloginwfo(){
         driver.get(Constants.URLUser);
         extentTest.log(LogStatus.PASS,"Berada di halaman login WFO");
-        chromeDriver.setGeolocationSetting(2);
-        chromeDriver.setCameraSetting(2);
+      
     }
 
 
@@ -47,12 +45,13 @@ public class AbsenMasukdanKeluarTest {
     public void memasukanusernameandpasswordyangvalidwfo(){
         absenmasukdankeluar.loginUser("dumy@test.com","12345678");
         absenmasukdankeluar.setBtnLogin();
-        extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
     }
 
     @And("Melakukan Absen Masuk WFO")
     public void melakukanabsenmasukwfo(){
       absenmasukdankeluar.setBtnAbsenMasuk();
+      Utils.delay(3);
       absenmasukdankeluar.setBtnShootCamera();
       Utils.delay(3);
       absenmasukdankeluar.setBtnTipeAbsen();
@@ -61,8 +60,8 @@ public class AbsenMasukdanKeluarTest {
       Utils.delay(3);
       absenmasukdankeluar.setNotes("Absen Masuk WFO");
       // Utils.delay(2);
-      extentTest.log(LogStatus.PASS,"Melakukan Absen Masuk WFO");
       // absenmasukdankeluar.setBtnSubmitAbsenMasuk();
+      // driver.close();
     }
 
     // @Then("I should be redirected to dashboard page user")
@@ -85,7 +84,7 @@ public class AbsenMasukdanKeluarTest {
     public void MemasukanusernamedanpasswordyangvalidWFH(){
       absenmasukdankeluar.loginUser("dumy@test.com","12345678");
       absenmasukdankeluar.setBtnLogin();
-      extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
     }
 
     @And("Melakukan Absen Masuk WFH")
@@ -98,77 +97,81 @@ public class AbsenMasukdanKeluarTest {
       absenmasukdankeluar.setBtnTipeAbsenMasukWFH();
       Utils.delay(3);
       absenmasukdankeluar.setNotes("Absen Masuk WFH");
-      extentTest.log(LogStatus.PASS,"Melakukan Absen Masuk WFH");
+        driver.manage().deleteAllCookies(); // Menghapus cookies
+        driver.navigate().refresh();
       // Utils.delay(2);
       // absenmasukdankeluar.setBtnSubmitAbsenMasuk();
+      // driver.quit();
     }
 
-
-    /////////////// Scenario 3 Absen masuk Negative
-    // @Given("Berada di halaman login")
-    // public void beradadilogin(){
-    //   System.setProperty("webdriver.chrome.driver", "./chromedriver-win64/chromedriver.exe");
-    //     driver = new ChromeDriver();
-    //     driver.get("https://magang.dikahadir.com/absen/login"); 
-    //     ChromeOptions options = new ChromeOptions();
-    //     Map<String, Object> prefs = new HashMap<>();
-    //     prefs.put("profile.default_content_setting_values.geolocation", 2);
-    //     prefs.put("profile.default_content_setting_values.media_stream_camera", 2);
-    //     options.setExperimentalOption("prefs", prefs);
-    //     options.setExperimentalOption("useAutomationExtension", false);
-    //     options.addArguments("--no-sandbox");
- 
-    //     extentTest.log(LogStatus.PASS,"Berada di halaman login WFO");
+    // /////////////////////////////Scenario 3 Absen Keluar
+    
+    // @Given("Berada di halaman login absen keluar")
+    // public void beradadihalamanloginabsenkeluar(){
+    //     driver.get(Constants.URLUser);
+    //     extentTest.log(LogStatus.PASS,"Berada di halaman login absen keluar");
     // }
 
 
-    // @When("Memasukan username dan password yang valid")
-    // public void memasukanusernameandpasswordyangvalid(){
-    //     absenmasukdankeluar.loginUser("dumy@test.com","12345678");
-    //     absenmasukdankeluar.setBtnLogin();
+    // @When("Memasukan username dan password yang valid untuk absen keluar")
+    // public void Memasukanusernamedanpasswordyangvaliduntukabsenkeluar() {
+    //   absenmasukdankeluar.loginUser("zaki@test.com","zakiyanto123");
+    //   absenmasukdankeluar.setBtnLogin();
     //     // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
     // }
 
+    // @And("Melakukan Absen Keluar")
+    // public void MelakukanAbsenKeluar()throws InterruptedException {
+    //   Thread.sleep(3000);
+    //   ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");
+    //   absenmasukdankeluar.setBtnAbsenKeluar();
+    //   Utils.delay(3);
+    //   absenmasukdankeluar.setNotesAbsenKeluar("Absen Keluar");
+    //   Utils.delay(3);
+    //   // absenmasukdankeluar.setBtnAbsenKeluarPulang();
+    // }
 
-    // @And("Melakukan Absen Masuk dengan kamera mati")
-    // public void melakukanabsenmasukdengankameramati(){
-    //   absenmasukdankeluar.setBtnAbsenMasuk();
-    //   absenmasukdankeluar.setBtnShootCamera();
-    //   Utils.delay(3);
-    //   absenmasukdankeluar.setBtnTipeAbsen();
-    //   Utils.delay(3);
-    //   absenmasukdankeluar.setBtnTipeAbsenMasukWFO();
-    //   Utils.delay(3);
-    //   absenmasukdankeluar.setNotes("Absen Masuk WFO");
+    // //////////////////////////// Scenario 4 Absen Keluar Tanpa Note
+    // @Given("Berada di halaman login absen keluar tanpa note")
+    // public void beradadihalamanloginabsenkeluartanpanote(){
+    //     driver.get(Constants.URLUser);
+    //     extentTest.log(LogStatus.PASS,"Berada di halaman login absen keluar");
     // }
 
 
-    /////////////////////////////Scenario 4 Absen Keluar
-    
-    @Given("Berada di halaman login absen keluar")
-    public void beradadihalamanloginabsenkeluar(){
-        driver.get(Constants.URLUser);
-        extentTest.log(LogStatus.PASS,"Berada di halaman login absen keluar");
-    }
+    // @When("Memasukan username dan password yang valid untuk absen keluar tanpa note")
+    // public void Memasukanusernamedanpasswordyangvaliduntukabsenkeluartanpanote() {
+    //   absenmasukdankeluar.loginUser("zaki@test.com","zakiyanto123");
+    //   absenmasukdankeluar.setBtnLogin();
+    //     // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+    // }
+
+    // @And("Melakukan Absen Keluar tanpa note")
+    // public void MelakukanAbsenKeluarTanpaNote()throws InterruptedException {
+    //   Thread.sleep(3000);
+    //   ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");
+    //   absenmasukdankeluar.setBtnAbsenKeluar();
+    //   Utils.delay(3);
+    //   // absenmasukdankeluar.setBtnAbsenKeluarPulang();
+    // }
+
+  //   /////////////// Scenario 5 Absen masuk kamera mati
+  //   @Given("Berada di halaman login KM")
+  //   public void beradadiloginkm(){
+  //     driver.get(Constants.URLUser);
+  //     extentTest.log(LogStatus.PASS,"Berada di halaman login WFO");    
+  // }
+ 
+  //   @When("Memasukan username dan password yang valid KM")
+  //   public void MemasukanusernamedanpasswordyangvalidKM(){
+  //       absenmasukdankeluar.loginUser("dumy@test.com","12345678");
+  //       absenmasukdankeluar.setBtnLogin();
+  //       // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+  //   }
 
 
-    @When("Memasukan username dan password yang valid untuk absen keluar")
-    public void Memasukanusernamedanpasswordyangvaliduntukabsenkeluar() {
-      absenmasukdankeluar.loginUser("zaki@test.com","zakiyanto123");
-      absenmasukdankeluar.setBtnLogin();
-      extentTest.log(LogStatus.PASS,"I enter a valid username and password");
-        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
-    }
-
-    @And("Melakukan Absen Keluar")
-    public void MelakukanAbsenKeluar()throws InterruptedException {
-      Thread.sleep(3000);
-      ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");
-      absenmasukdankeluar.setBtnAbsenKeluar();
-      Utils.delay(3);
-      absenmasukdankeluar.setNotesAbsenKeluar("Absen Keluar Pulang");
-      extentTest.log(LogStatus.PASS,"Melakukan Absen Keluar");
-      // Utils.delay(2);
-      // absenmasukdankeluar.setBtnAbsenKeluarPulang();
-    }
+  //   @And("Melakukan Absen Masuk dengan kamera mati")
+  //   public void melakukanabsenmasukdengankameramati1(){
+  //     absenmasukdankeluar.setBtnAbsenMasukKameraMati();
+  //   }
 }

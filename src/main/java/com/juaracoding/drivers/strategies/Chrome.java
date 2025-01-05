@@ -28,8 +28,8 @@ public class Chrome implements DriverStrategy {
     public WebDriver setStrategy() {
         ChromeOptions options = new ChromeOptions();
         Map<String, Object> prefs = new HashMap<>();
-        prefs.put("profile.default_content_setting_values.geolocation", geolocationSetting);
-        prefs.put("profile.default_content_setting_values.media_stream_camera", cameraSetting);
+        prefs.put("profile.default_content_setting_values.geolocation", 1);
+        // prefs.put("profile.default_content_setting_values.media_stream_camera", 1);
         options.setExperimentalOption("prefs", prefs);
         options.setExperimentalOption("useAutomationExtension", false);
         options.addArguments("--no-sandbox");

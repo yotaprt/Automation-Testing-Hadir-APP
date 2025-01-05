@@ -45,6 +45,12 @@ public class LoginUser {
     @FindBy(xpath = "//input[@name='notes']")
     private WebElement notes;
 
+    @FindBy(css = ".css-1qamc72")
+    private WebElement txtEmailinvalidLoginUser;
+
+    @FindBy(css = ".css-1qamc72")
+    private WebElement txtPasswordinvalidLoginUser;
+
     public void loginUser(String username, String password){
       this.email.sendKeys(username);
       this.password.sendKeys(password);
@@ -88,4 +94,12 @@ public void setNotes(String notes){
     this.notes.sendKeys(notes);
 }
 
+public String getTxtEmailinvalidLoginUser(){
+    return txtEmailinvalidLoginUser.getText();
+
+}
+
+public String getTxtPasswordinvalidLoginUser(){
+    return txtPasswordinvalidLoginUser.getText();
+}
 }

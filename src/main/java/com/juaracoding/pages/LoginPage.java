@@ -21,7 +21,7 @@ public class LoginPage {
     @FindBy(id = "password")
     private WebElement password;
 
-    @FindBy(css = ".MuiButton-root")
+    @FindBy(css = ".MuiButton-contained")
     private WebElement btnLogin;
 
      public void loginUser(String username, String password){

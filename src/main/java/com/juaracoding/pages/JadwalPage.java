@@ -72,6 +72,13 @@ public class JadwalPage {
     @FindBy(css = ".MuiTableBody-root > tr:nth-of-type(1) > td:nth-of-type(1)")
     private WebElement verifyAddedJadwal;
 
+    @FindBy(css = ".MuiPaper-elevation24")
+    private WebElement modalDetailJadwal;
+
+    public void verifymodalDetailJadwal() {
+        modalDetailJadwal.isDisplayed();
+    }
+
     public void clickMenuInManagement(){
         managementNavBar.click();
     }
@@ -84,7 +91,7 @@ public class JadwalPage {
         btnTambahJadwal.click();    
     }
 
-    public void clickJadwal(){
+    public void clickActionJadwal(){
         btnActionJadwal.click();    
     }
 
