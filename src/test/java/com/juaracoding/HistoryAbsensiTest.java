@@ -39,7 +39,7 @@ public class HistoryAbsensiTest {
     public void Ienteruseravalidusernameandpasswordandlogin() {
         historyAbsensi.loginUser("dumy@test.com", "12345678");
         historyAbsensi.setBtnLogin();
-        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+        extentTest.log(LogStatus.PASS,"I enter a valid username and password");
     }
 
     @And("I click the login button selengkapnya")
@@ -47,6 +47,7 @@ public class HistoryAbsensiTest {
         Thread.sleep(3000);
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,1000)");
          historyAbsensi.setBtnHistoryAbsensi();
+         extentTest.log(LogStatus.PASS,"I click the login button selengkapnya");
     }
 
     @Then("I should be redirected to dashboard history absensi")
@@ -68,13 +69,14 @@ public class HistoryAbsensiTest {
     Thread.sleep(3000);
     historyAbsensi.loginUser("dumy@test.com","12345678");
     historyAbsensi.setBtnLogin();
-    // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+    extentTest.log(LogStatus.PASS,"I enter a valid username and password");
     }
 
     @And("I click the login button absensi")
     public void Iclicktheloginbuttonselengkapnyaabsensi() throws InterruptedException {
     Thread.sleep(3000);
     historyAbsensi.setBtnAbsensi();
+    extentTest.log(LogStatus.PASS,"I click the login button absensi");
     }
 
     @Then("I should be redirected to dashboard history absensi 2")
@@ -98,7 +100,7 @@ public class HistoryAbsensiTest {
     public void memasukanusernameandpassword() {
         historyAbsensi.loginUser("dumy@test.com", "12345678");
         historyAbsensi.setBtnLogin();
-        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+        extentTest.log(LogStatus.PASS,"Memasukan username dan password");
     }
 
     @And("Klik button absensi")
@@ -106,6 +108,7 @@ public class HistoryAbsensiTest {
         Thread.sleep(3000);
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");
          historyAbsensi.setBtnHistoryAbsensi();
+         extentTest.log(LogStatus.PASS,"Admin Klik button absensi");
     }
 
     @Then("Masuk halaman history absensi dan back ke menu utama")
@@ -113,6 +116,7 @@ public class HistoryAbsensiTest {
         Thread.sleep(3000);
         historyAbsensi.setBtnBack();
         Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/apps/absent");
+        extentTest.log(LogStatus.PASS,"Masuk halaman history absensi dan back ke menu utama");
     }
 
     

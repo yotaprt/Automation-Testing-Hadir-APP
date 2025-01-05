@@ -34,6 +34,7 @@ public class AturanCutiTest {
         aturanCuti.loginUser("admin@hadir.com","admin@hadir");
         aturanCuti.setBtnManagement();
         aturanCuti.setBtnAturanCuti();
+        extentTest.log(LogStatus.PASS, "Login admin dan membuka aturan cuti");
     }
 
     @When("Menambahkan data Aturan Cuti")
@@ -55,6 +56,7 @@ public class AturanCutiTest {
         aturanCuti.setJumlahBulanKerjaSisaCuti("1");
         Utils.delay(1);
         aturanCuti.setBtnTambahkanAturanCuti();
+        extentTest.log(LogStatus.PASS, "Menambahkan data Aturan Cuti");
     }
 
     @Then("Data Aturan Cuti berhasil ditambahkan")
@@ -69,6 +71,7 @@ public class AturanCutiTest {
         aturanCuti.loginUser("admin@hadir.com","admin@hadir");
         aturanCuti.setBtnManagement();
         aturanCuti.setBtnAturanCuti();
+        extentTest.log(LogStatus.PASS, "Login admin dan membuka aturan cuti Negative Tanggal Batas Sisa Cuti");
     }
 
     @When("Menambahkan data Aturan Cuti Tanggal Batas Sisa Cuti Invalid")
@@ -85,11 +88,13 @@ public class AturanCutiTest {
         Utils.delay(1);
         aturanCuti.setJumlahBulanKerjaSisaCuti("1");
         Utils.delay(1);
+        extentTest.log(LogStatus.PASS, "Menambahkan data Aturan Cuti Tanggal Batas Sisa Cuti Invalid");
     }
 
     @And("Tambahkan Aturan Cuti Baru Tanggal Batas Sisa Cuti Invalid")
     public void tambahkanAturanCutiBaruTanggalBatasSisaCutiInvalid() {
         aturanCuti.setBtnTambahkanAturanCuti();
+        extentTest.log(LogStatus.PASS, "Tambahkan Aturan Cuti Baru Tanggal Batas Sisa Cuti Invalid");
     }
 
     @Then("Admin gagal Menambahkan Aturan Cuti Tanggal Batas Sisa Cuti Invalid")
@@ -106,6 +111,7 @@ public class AturanCutiTest {
         aturanCuti.loginUser("admin@hadir.com","admin@hadir");
         aturanCuti.setBtnManagement();
         aturanCuti.setBtnAturanCuti();
+        extentTest.log(LogStatus.PASS, "Login admin dan membuka aturan cuti Negative Bulan Batas Sisa Cuti");
     }
 
     @When("Menambahkan data Aturan Cuti Negative Bulan Batas Sisa Cuti")
@@ -124,11 +130,13 @@ public class AturanCutiTest {
         Utils.delay(1);
         aturanCuti.setJumlahBulanKerjaSisaCuti("1");
         Utils.delay(1);
+        extentTest.log(LogStatus.PASS, "Menambahkan data Aturan Cuti Negative Bulan Batas Sisa Cuti");
     }
 
     @And ("Tambahkan Aturan Cuti Baru Negative Bulan Batas Sisa Cuti")
     public void tambahkanAturanCutiBaruNegativeBulanBatasSisaCuti() {
         aturanCuti.setBtnTambahkanAturanCuti();
+        extentTest.log(LogStatus.PASS, "Tambahkan Aturan Cuti Baru Negative Bulan Batas Sisa Cuti");
     }
 
     @Then("Admin Gagal Menambahkan Aturan Cuti Negative Bulan Batas Sisa Cuti")
@@ -145,16 +153,19 @@ public class AturanCutiTest {
         aturanCuti.loginUser("admin@hadir.com","admin@hadir");
         aturanCuti.setBtnManagement();
         aturanCuti.setBtnAturanCuti();
+        extentTest.log(LogStatus.PASS, "Login admin untuk mencari data Aturan Cuti");
     }
 
     @When("Mencari data Aturan Cuti")
     public void mencariDataAturanCuti() {
         aturanCuti.setSearchAturanCuti("Aturan Cuti New");
+        extentTest.log(LogStatus.PASS, "Mencari data Aturan Cuti");
     }
 
     @And("Klik tombol cari data Aturan Cuti")
     public void klikTombolCariDataAturanCuti() {
         aturanCuti.setBtnSearch();
+        extentTest.log(LogStatus.PASS, "Klik tombol cari data Aturan Cuti");
     }
 
     @Then("Admin Menemui data Aturan Cuti yang di cari")
@@ -170,16 +181,19 @@ public class AturanCutiTest {
         aturanCuti.loginUser("admin@hadir.com","admin@hadir");
         aturanCuti.setBtnManagement();
         aturanCuti.setBtnAturanCuti();
+        extentTest.log(LogStatus.PASS, "Login admin untuk mereset data Aturan Cuti");
     }
 
     @When("Mencari data Aturan Cuti untuk direset")
     public void mencariDataAturanCutiUntukDireset() {
         aturanCuti.setSearchAturanCuti("Aturan Cuti New");
+        extentTest.log(LogStatus.PASS, "Mencari data Aturan Cuti untuk direset");
     }
 
     @And("Klik tombol cari data Aturan Cuti untuk mereset")
     public void klikTombolCariDataAturanCutiUntukMereset() {
         aturanCuti.setBtnSearch();
+        extentTest.log(LogStatus.PASS, "Klik tombol cari data Aturan Cuti untuk mereset");
     }
 
     @Then("Admin Menemui data Aturan Cuti yang di cari dan telah direset")
@@ -195,16 +209,19 @@ public void loginAdminUntukMelihatDataAturanCuti() {
     aturanCuti.loginUser("admin@hadir.com","admin@hadir");
     aturanCuti.setBtnManagement();
     aturanCuti.setBtnAturanCuti();
+    extentTest.log(LogStatus.PASS, "Login admin untuk melihat data Aturan Cuti");
 }
 
 @When("Melihat data Aturan Cuti")
 public void melihatDataAturanCuti() {
     aturanCuti.setBtnAksiAturanCuti();
+    extentTest.log(LogStatus.PASS, "Melihat data Aturan Cuti");
 }
 
 @And("Klik tombol View untuk melihat detail data Aturan Cuti")
 public void klikTombolViewUntukMelihatDetailDataAturanCuti() {
     aturanCuti.setBtnView();
+    extentTest.log(LogStatus.PASS, "Klik tombol View untuk melihat detail data Aturan Cuti");
 }
 
 @Then("Admin Berhasil membuka detail data Aturan Cuti")
@@ -219,11 +236,13 @@ public void loginAdminUntukMenghapusDataAturanCuti() {
     aturanCuti.loginUser("admin@hadir.com","admin@hadir");
     aturanCuti.setBtnManagement();
     aturanCuti.setBtnAturanCuti();
+    extentTest.log(LogStatus.PASS, "Login admin untuk menghapus data Aturan Cuti");
 }
 
 @When("Admin klik aksi di titik tiga Aturan Cuti")
 public void adminKlikAksiDiTitikTigaAturanCuti() {
     aturanCuti.setBtnAksiAturanCuti();
+    extentTest.log(LogStatus.PASS, "Admin klik aksi di titik tiga Aturan Cuti");
 }
 
 @And("Admin klik tombol delete untuk menghapus data Aturan Cuti")
@@ -231,6 +250,7 @@ public void adminKlikTombolDeleteUntukMenghapusDataAturanCuti() {
     aturanCuti.setBtnDelete();
     Utils.delay(3);
     aturanCuti.setBtnHapusAturanCuti();
+    extentTest.log(LogStatus.PASS, "Admin klik tombol delete untuk menghapus data Aturan Cuti");
 }
 
 @Then("Admin Berhasil Menghapus data Aturan Cuti")
@@ -247,12 +267,14 @@ public void AdminBerhasilMenghapusDataAturanCuti() {
         aturanCuti.loginUser("admin@hadir.com","admin@hadir");
         aturanCuti.setBtnManagement();
         aturanCuti.setBtnAturanCuti();
+        extentTest.log(LogStatus.PASS, "Login admin dan membuka aturan cuti untuk edit data Aturan Cuti");
     }
 
     @When("Admin klik aksi di titik tiga Aturan Cuti untuk edit data Aturan Cuti")
     public void adminKlikAksiDiTitikTigaAturanCutiUntukEditDataAturanCuti() {
         aturanCuti.setBtnAksiAturanCuti();
         aturanCuti.setBtnEdit();
+        extentTest.log(LogStatus.PASS, "Admin klik aksi di titik tiga Aturan Cuti untuk edit data Aturan Cuti");
     }
 
     @And("Admin edit data Aturan Cuti")
@@ -273,6 +295,7 @@ public void AdminBerhasilMenghapusDataAturanCuti() {
         aturanCuti.setJumlahBulanKerjaSisaCuti("2");
         Utils.delay(1);
         aturanCuti.setBtnSimpanEditAturanCuti();
+        extentTest.log(LogStatus.PASS, "Admin edit data Aturan Cuti");
     }
 
     @Then("Data Aturan Cuti berhasil diedit")
@@ -289,12 +312,14 @@ public void AdminBerhasilMenghapusDataAturanCuti() {
         aturanCuti.loginUser("admin@hadir.com","admin@hadir");
         aturanCuti.setBtnManagement();
         aturanCuti.setBtnAturanCuti();
+        extentTest.log(LogStatus.PASS, "Login admin dan membuka aturan cuti untuk edit data Aturan Cuti negative");
     }
 
     @When("Admin klik aksi di titik tiga Aturan Cuti untuk edit data Aturan Cuti negative")
     public void adminKlikAksiDiTitikTigaAturanCutiUntukEditDataAturanCutiNegative() {
         aturanCuti.setBtnAksiAturanCuti();
         aturanCuti.setBtnEdit();
+        extentTest.log(LogStatus.PASS, "Admin klik aksi di titik tiga Aturan Cuti untuk edit data Aturan Cuti negative");
     }
 
     @And("Admin edit data Aturan Cuti negative")
@@ -311,6 +336,7 @@ public void AdminBerhasilMenghapusDataAturanCuti() {
         aturanCuti.setJumlahBulanKerjaSisaCuti("Tiga");
         Utils.delay(1);
         aturanCuti.setBtnSimpanEditAturanCuti();
+        extentTest.log(LogStatus.PASS, "Admin edit data Aturan Cuti negative");
     }
 
     @Then("Data Aturan Cuti Gagal Diedit")
@@ -320,7 +346,7 @@ public void AdminBerhasilMenghapusDataAturanCuti() {
        aturanCuti.BulanBatasSisaCutiError().isDisplayed();
        aturanCuti.textErrorEditMaksimalSisaCuti().isDisplayed();
        aturanCuti.textEditJumlahBulanSisaCutiError().isDisplayed();
-       extentTest.log(LogStatus.PASS, "Sukses Membuat Aturan Cuti");
+       extentTest.log(LogStatus.PASS, "Data Aturan Cuti Gagal Diedit");
     }
 
 /////////////////////////Scenario Menambahkan detail data Aturan Cuti
@@ -330,6 +356,7 @@ public void loginAdminUntukMemanmbahkanDetailDataAturanCuti() {
     aturanCuti.loginUser("admin@hadir.com","admin@hadir");
     aturanCuti.setBtnManagement();
     aturanCuti.setBtnAturanCuti();
+    extentTest.log(LogStatus.PASS, "Login admin untuk menambahkan detail data Aturan Cuti");
 }
 
 
@@ -339,6 +366,7 @@ public void melihatDetailDataAturanCuti() {
     aturanCuti.setBtnView();
     Utils.delay(1);
     aturanCuti.setBtnTambahkanDetailAturanCuti();
+    extentTest.log(LogStatus.PASS, "Menambahkan data Aturan Cuti untuk menambahkan detail data Aturan Cuti");
 }
 
 @And("Admin menambahkan detail aturan cuti")
@@ -346,6 +374,7 @@ public void menambahkanDetailDataAturanCuti() {
     aturanCuti.setDetailMinimalBulanBekerja("3");
     aturanCuti.setDetailTotalCuti("2");
     aturanCuti.setBtnSubmitTambahkanDetailAturanCuti();
+    extentTest.log(LogStatus.PASS, "Admin menambahkan detail data Aturan Cuti");
 
 }
 
@@ -363,6 +392,7 @@ public void loginAdminUntukMenambahkanDetailDataAturanCutiInvalid() {
     aturanCuti.loginUser("admin@hadir.com","admin@hadir");
     aturanCuti.setBtnManagement();
     aturanCuti.setBtnAturanCuti();
+    extentTest.log(LogStatus.PASS, "Login admin untuk menambahkan detail data Aturan Cuti Invalid");
 }
 
 @When("Menambahkan data Aturan Cuti untuk menambahkan detail data Aturan Cuti Invalid")
@@ -371,6 +401,7 @@ public void menambahkandataaturancutiuntukmenambahkandetaildataaturancutiinvalid
     aturanCuti.setBtnView();
     Utils.delay(1);
     aturanCuti.setBtnTambahkanDetailAturanCuti();
+    extentTest.log(LogStatus.PASS, "Menambahkan data Aturan Cuti untuk menambahkan detail data Aturan Cuti Invalid");
 }
 
 @And("Admin menambahkan detail aturan cuti Invalid")
@@ -378,6 +409,7 @@ public void menambahkanDetailDataAturanCutiinvalid() {
     aturanCuti.setDetailMinimalBulanBekerja("Invalid");
     aturanCuti.setDetailTotalCuti("");
     aturanCuti.setBtnSubmitTambahkanDetailAturanCuti();
+    extentTest.log(LogStatus.PASS, "Admin menambahkan detail data Aturan Cuti Invalid");
 
 }
 
@@ -395,6 +427,7 @@ public void LoginadminuntukMenghapusdatadetailAturanCuti () {
     aturanCuti.loginUser("admin@hadir.com","admin@hadir");
     aturanCuti.setBtnManagement();
     aturanCuti.setBtnAturanCuti();
+    extentTest.log(LogStatus.PASS, "Login admin untuk Menghapus data detail Aturan Cuti");
 }
 
 @When("Admin klik aksi di titik tiga untuk menghapus data Detail Aturan Cuti")
@@ -402,6 +435,7 @@ public void AdminklikaksidititiktigauntukmenghapusdataDetailAturanCuti() {
     aturanCuti.setBtnAksiAturanCuti();
     aturanCuti.setBtnView();
     Utils.delay(1);
+    extentTest.log(LogStatus.PASS, "Admin klik aksi di titik tiga untuk menghapus data Detail Aturan Cuti");
 }
 
 @And("Admin klik tombol delete untuk menghapus data Detail Aturan Cuti")
@@ -411,7 +445,7 @@ public void AdminkliktomboldeleteuntukmenghapusdataDetailAturanCuti() {
     aturanCuti.setBtnDeleteDetailAturanCuti();
     Utils.delay(1);
     aturanCuti.setBtnConfirmDeleteDetailAturanCuti();
-
+    extentTest.log(LogStatus.PASS, "Admin klik tombol delete untuk menghapus data Detail Aturan Cuti");
 }
 
 @Then("Admin Berhasil Menghapus data Detail Aturan Cuti")
@@ -426,6 +460,7 @@ public void loginAdminUntukEditDataDetailAturanCuti() {
     aturanCuti.loginUser("admin@hadir.com","admin@hadir");
     aturanCuti.setBtnManagement();
     aturanCuti.setBtnAturanCuti();
+    extentTest.log(LogStatus.PASS, "Login admin untuk Edit data detail Aturan Cuti");
 }
 
 @When("Admin klik aksi di titik tiga untuk Edit data Detail Aturan Cuti")
@@ -436,6 +471,7 @@ public void adminKlikAksiDiTitikTigaUntukEditDataDetailAturanCuti() {
     aturanCuti.setBtnAksiDetailAturanCuti();
     Utils.delay(1);
     aturanCuti.setBtnEditDetailAturanCuti();
+    extentTest.log(LogStatus.PASS, "Admin klik aksi di titik tiga untuk Edit data Detail Aturan Cuti");
 }
 
 @And("Admin Edit data Detail Aturan Cuti")
@@ -443,6 +479,7 @@ public void adminEditDataDetailAturanCuti() {
     aturanCuti.setDetailMinimalBulanBekerja("5");
     aturanCuti.setDetailTotalCuti("6");
     aturanCuti.setBtnSubmitEditDetailAturanCuti();
+    extentTest.log(LogStatus.PASS, "Admin Melakukan Edit data Detail Aturan Cuti");
 
 }
 
@@ -459,6 +496,7 @@ public void loginAdminUntukEditDataDetailAturanCutiInvalid() {
     aturanCuti.loginUser("admin@hadir.com","admin@hadir");
     aturanCuti.setBtnManagement();
     aturanCuti.setBtnAturanCuti();
+    extentTest.log(LogStatus.PASS, "Login admin untuk Edit data detail Aturan Cuti Invalid");
 }
 
 @When("Admin klik aksi di titik tiga untuk Edit data Detail Aturan Cuti Invalid")
@@ -469,6 +507,7 @@ public void adminKlikAksiDiTitikTigaUntukEditDataDetailAturanCutiInvalid() {
     aturanCuti.setBtnAksiDetailAturanCuti();
     Utils.delay(1);
     aturanCuti.setBtnEditDetailAturanCuti();
+    extentTest.log(LogStatus.PASS, "Admin klik aksi di titik tiga untuk Edit data Detail Aturan Cuti Invalid");
 }
 
 @And("Admin Edit data Detail Aturan Cuti Invalid")
@@ -476,6 +515,7 @@ public void adminEditDataDetailAturanCutiInvalid() {
     aturanCuti.setDetailMinimalBulanBekerja("Invalid");
     aturanCuti.setDetailTotalCuti("");
     aturanCuti.setBtnSubmitEditDetailAturanCuti();
+    extentTest.log(LogStatus.PASS, "Admin Edit data Detail Aturan Cuti Invalid");
 
 }
 

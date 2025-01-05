@@ -47,7 +47,7 @@ public void beradadihalamanlogintanpaselfie(){
 public void memasukanusernameandpasswordyangvalidtanpaselfie(){
     absenmasukdankeluar.loginUser("dumy1@test.com","12345678");
     absenmasukdankeluar.setBtnLogin();
-    // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+    extentTest.log(LogStatus.PASS,"Memasukan username dan password yang valid tanpa selfie");
 }
 
 @And("Melakukan Absen Masuk tanpa selfie")
@@ -62,6 +62,7 @@ public void melakukanabsenmasuktanpaselfie(){
   absenmasukdankeluar.setNotes("Absen Masuk tanpa selfie");
   Utils.delay(2);
   absenmasukdankeluar.setBtnSubmitAbsenMasuk();
+  extentTest.log(LogStatus.PASS,"User melakukan absen masuk tanpa selfie");
 }
 
    @Then("User berhasil melakukan absen masuk tanpa selfie")
@@ -84,7 +85,7 @@ public void melakukanabsenmasuktanpaselfie(){
     public void memasukanusernameandpasswordyangvalidwfo(){
         absenmasukdankeluar.loginUser("dumy@test.com","12345678");
         absenmasukdankeluar.setBtnLogin();
-        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+        extentTest.log(LogStatus.PASS,"Memasukan username dan password yang valid WFO");
     }
 
     @And("Melakukan Absen Masuk WFO")
@@ -100,6 +101,7 @@ public void melakukanabsenmasuktanpaselfie(){
       absenmasukdankeluar.setNotes("Absen Masuk WFO");
       Utils.delay(2);
       absenmasukdankeluar.setBtnSubmitAbsenMasuk();
+      extentTest.log(LogStatus.PASS,"User melakukan absen masuk WFO");
     }
 
     @Then("User berhasil melakukan absen masuk WFO")
@@ -122,7 +124,7 @@ public void melakukanabsenmasuktanpaselfie(){
     public void MemasukanusernamedanpasswordyangvalidWFH(){
       absenmasukdankeluar.loginUser("zaki@test.com","zakiyanto123");
       absenmasukdankeluar.setBtnLogin();
-        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+        extentTest.log(LogStatus.PASS,"Memasukan username dan password yang valid WFH");
     }
 
     @And("Melakukan Absen Masuk WFH")
@@ -137,6 +139,7 @@ public void melakukanabsenmasuktanpaselfie(){
       absenmasukdankeluar.setNotes("Absen Masuk WFH");
       Utils.delay(2);
       absenmasukdankeluar.setBtnSubmitAbsenMasuk();
+      extentTest.log(LogStatus.PASS,"User melakukan absen masuk WFH");
     }
 
       @Then("User berhasil melakukan absen masuk WFH")
@@ -159,7 +162,7 @@ public void melakukanabsenmasuktanpaselfie(){
     public void Memasukanusernamedanpasswordyangvaliduntukabsenkeluar() {
       absenmasukdankeluar.loginUser("dumy1@test.com","12345678");
       absenmasukdankeluar.setBtnLogin();
-        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+        extentTest.log(LogStatus.PASS,"Memasukan username dan password yang valid untuk absen keluar");
     }
 
     @And("Melakukan Absen Keluar")
@@ -171,6 +174,7 @@ public void melakukanabsenmasuktanpaselfie(){
       absenmasukdankeluar.setNotesAbsenKeluar("Absen Pulang");
       Utils.delay(3);
       absenmasukdankeluar.setBtnAbsenKeluarPulang();
+      extentTest.log(LogStatus.PASS,"User melakukan absen keluar");
     }
     
     @Then("User berhasil melakukan absen keluar")
@@ -192,7 +196,7 @@ public void melakukanabsenmasuktanpaselfie(){
     public void Memasukanusernamedanpasswordyangvaliduntukabsenkeluartanpanote() {
       absenmasukdankeluar.loginUser("zaki@test.com","zakiyanto123");
       absenmasukdankeluar.setBtnLogin();
-        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+        extentTest.log(LogStatus.PASS,"Memasukan username dan password yang valid untuk absen keluar tanpa note");
     }
 
     @And("Melakukan Absen Keluar tanpa note")
@@ -202,6 +206,7 @@ public void melakukanabsenmasuktanpaselfie(){
       absenmasukdankeluar.setBtnAbsenKeluar();
       Utils.delay(3);
       absenmasukdankeluar.setBtnAbsenKeluarPulang();
+      extentTest.log(LogStatus.PASS,"Melakukan Absen Keluar tanpa note");
     }
 
     @Then("User berhasil melakukan absen keluar tanpa note")
