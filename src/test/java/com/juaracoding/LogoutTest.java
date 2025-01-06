@@ -28,22 +28,34 @@ public class LogoutTest {
     }
 
 
-    @Given("Admin telah login")
-    public void Admintelahlogin(){
-        driver.get(Constants.URL);
-        loginPage.loginvalid("admin@hadir.com","admin@hadir");
+    @Given("User already logged in")
+    public void Useralreadyloggedin(){
+        driver.get(Constants.URLUser);
+        loginPage.loginvalid("zaki1@test.com","zakiyanto123");
+        loginPage.setBtnLogin();
+        extentTest.log(LogStatus.PASS,"User already logged in");
         // extentTest.log(LogStatus.PASS,"I am on the login page");
     }
 
-    @When("Klik User Profile")
-    public void KlikUserProfile(){
+    @When("User click proflie")
+    public void KlikUserProfile() throws InterruptedException {
+        Thread.sleep(2000);
         logoutPage.setBtnProfile();
+        extentTest.log(LogStatus.PASS,"User click proflie");
         // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
     }
 
-    @Then("Klik tombol Log Out")
-    public void i_should_be_redirected_to_dashboard_page()throws InterruptedException {
-    logoutPage.setBtnLogout();
-    extentTest.log(LogStatus.PASS,"I should be redirected to dashboard page");
+    @And("User click logout button")
+    public void Userclicklogoutbutton() throws InterruptedException {
+        Thread.sleep(1000);
+        logoutPage.setBtnLogout();
+        extentTest.log(LogStatus.PASS,"User click logout button");
+    }
+
+    @Then("User navigated to the login page")
+    public void Usernavigatedtotheloginpage()throws InterruptedException {
+        Thread.sleep(2000);
+        extentTest.log(LogStatus.PASS,"User navigated to the login page");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/absen/login");
     }
 }

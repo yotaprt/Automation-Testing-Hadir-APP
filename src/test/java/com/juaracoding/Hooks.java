@@ -24,16 +24,16 @@ public class Hooks {
         driver = DriverSingleton.getDriver();
         ScenarioTests[] tests = ScenarioTests.values();
         extentTest = reports.startTest(tests[Utils.testCount].getScenarioTestName());
-        Utils.testCount++;
+        // Utils.testCount++;
     }
 
     @AfterStep
     public void getResultTest(Scenario scenario) throws IOException {
         if(scenario.isFailed()){
-            String screenshotPath = Utils.getScreenshot(driver,scenario.getName()
-                    .replace(" ","_"));
-            extentTest.log(LogStatus.FAIL,scenario.getName()+"\n"
-                +extentTest.addScreenCapture(screenshotPath));
+            String screenshotPath = Utils.getScreenshot(driver, scenario.getName()
+                    .replace(" ", "_"));
+            extentTest.log(LogStatus.FAIL, scenario.getName()+"\n"
+                    +extentTest.addScreenCapture(screenshotPath));
         }
     }
 

@@ -21,13 +21,13 @@ public class LogoutPage {
     @FindBy(id = "password")
     private WebElement password;
 
-    @FindBy(css = ".MuiButton-root")
+    @FindBy(css = ".MuiButton-contained")
     private WebElement btnLogin;
 
-    @FindBy(css = ".css-uajqx8")
+    @FindBy(css = ".MuiButton-fullWidth")
     private WebElement btnLogout;
 
-    @FindBy( css = ".MuiButton-textInherit")
+    @FindBy(css = ".MuiButton-text")
     private WebElement profile;
 
 
@@ -47,22 +47,5 @@ public class LogoutPage {
     public void setBtnProfile(){
         profile.click();
     }
-
-    // public void logout(){
-    //     userDropdown.click();
-    //     btnLogout.click();
-    // }
-
-    // public String getTxtDashboard(){
-    //     return txtDashboard.getText();
-    // }
-
-    // public String getTxtInvalid(){
-    //     return txtInvalid.getText();
-    // }
-
-    // public boolean getImgCompanyBranding(){
-    //     return imgCompanyBranding.isDisplayed();
-    // }
 
 }

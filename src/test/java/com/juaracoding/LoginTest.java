@@ -1,6 +1,7 @@
 package com.juaracoding;
 
 import com.juaracoding.pages.LoginPage;
+import com.juaracoding.pages.LoginUser;
 import com.juaracoding.utils.Constants;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -19,6 +20,7 @@ public class LoginTest {
 
     private static LoginPage loginPage = new LoginPage();
 
+
     public LoginTest(){
         driver = Hooks.driver;
         extentTest = Hooks.extentTest;
@@ -27,70 +29,45 @@ public class LoginTest {
 
     @Given("I am on the login page")
     public void i_am_on_the_login_page(){
-        driver.get(Constants.URL);
-        extentTest.log(LogStatus.PASS,"I am on the login page");
+        driver.get(Constants.URLUser);
+        Assert.assertEquals(driver.getCurrentUrl(), Constants.URLUser);
+        extentTest.log(LogStatus.PASS, "I am on the login page");
     }
 
-    @When("I enter a valid username and password")
-    public void i_enter_a_valid_username_and_password(){
-        loginPage.loginUser("admin@hadir.com","admin@hadir");
-        // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
+    @Given("I am logged in with email {string} and password {string}")
+    public void i_am_logged_in_with_email_and_password(String email, String password) {
+        driver.get(Constants.URLUser);
+        Assert.assertEquals(driver.getCurrentUrl(), Constants.URLUser);
+        loginPage.loginUser(email, password);
+        loginPage.setBtnLogin();
+        extentTest.log(LogStatus.PASS, "I am logged in with email "+email+" and password "+password);
+    }
+
+    @When("I enter email {string} and password {string}")
+    public void i_enter_email_and_password(String email, String password){
+        loginPage.loginUser(email, password);
+        extentTest.log(LogStatus.PASS, "I enter email "+email+" and password "+password);
     }
 
     @And("I click the login button")
-    public void i_click_the_login_button(){
+    public void i_click_the_login_button() throws InterruptedException {
+        Thread.sleep(1000);
         loginPage.setBtnLogin();
+        extentTest.log(LogStatus.PASS, "I click the login button");
     }
 
     @Then("I should be redirected to dashboard page")
-    public void i_should_be_redirected_to_dashboard_page()throws InterruptedException {
-    Thread.sleep(5000);
-    Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/dashboards/pending");
-    extentTest.log(LogStatus.PASS,"I should be redirected to dashboard page");
+    public void i_should_be_redirected_to_dashboard_page() throws InterruptedException {
+        Thread.sleep(2000);
+        Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/apps/absent");
+        extentTest.log(LogStatus.PASS, "I should be redirected to dashboard page");
     }
 
-    // TCC.HR.00001
-    // @Given("I am on the login page")
-    // public void i_am_on_the_login_page(){
-    //     driver.get(Constants.URL);
-    //     extentTest.log(LogStatus.PASS,"I am on the login page");
-    // }
-
-    // @When("I enter a valid username and password")
-    // public void i_enter_a_valid_username_and_password(){
-    //     loginPage.loginUser("Admin","admin123");
-    //     extentTest.log(LogStatus.PASS,"I enter a valid username and password");
-    // }
-
-    // @And("I click the login button")
-    // public void i_click_the_login_button(){
-    //     loginPage.setBtnLogin();
-    //     extentTest.log(LogStatus.PASS,"I click the login button");
-    // }
-
-    // @Then("I should be redirected to dashboard page")
-    // public void i_should_be_redirected_to_dashboard_page(){
-    //     Assert.assertEquals(loginPage.getTxtDashboard(),"Dashboard");
-    //     extentTest.log(LogStatus.PASS,"I should be redirected to dashboard page");
-    // }
-
-    // // TCC.HR.00002
-    // @Given("I am logout")
-    // public void i_am_logout(){
-    //     loginPage.logout();
-    //     extentTest.log(LogStatus.PASS,"I am logout");
-    // }
-
-    // @When("I enter a invalid username and password")
-    // public void i_enter_a_invalid_username_and_password(){
-    //     loginPage.loginUser("invalid","invalid");
-    //     extentTest.log(LogStatus.PASS,"I enter a invalid username and password");
-    // }
-
-    // @Then("I see message invalid credentials")
-    // public void i_see_message_invalid_credentials(){
-    //     Assert.assertEquals(loginPage.getTxtInvalid(),"Invalid credentials");
-    //     extentTest.log(LogStatus.PASS,"I see message invalid credentials");
-    // }
+    @Then("User failed to login")
+    public void user_failed_to_login() throws InterruptedException {
+        Thread.sleep(1000);
+        Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/absen/login");
+        extentTest.log(LogStatus.PASS, "User failed to login");
+    }
 
 }
