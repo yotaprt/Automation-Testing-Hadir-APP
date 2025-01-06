@@ -24,10 +24,10 @@ public class LogoutPage {
     @FindBy(css = ".MuiButton-contained")
     private WebElement btnLogin;
 
-    @FindBy(xpath = ".MuiButton-fullWidth")
+    @FindBy(css = ".MuiButton-fullWidth")
     private WebElement btnLogout;
 
-    @FindBy( css = "..MuiButton-text")
+    @FindBy(css = ".MuiButton-text")
     private WebElement profile;
 
 

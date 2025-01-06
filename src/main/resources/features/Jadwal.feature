@@ -12,7 +12,7 @@ Feature: Manage Jadwal
     And User pilih Tipe Jadwal
     And User pilih Tanggal
     And User masukkan Jadwal Kerja
-    And User pilih hari kerja
+    And User pilih Hari Kerja
     And User masukkan batas Keterlambatan
     And User klik tombol Simpan
     Then Jadwal baru berhasil ditambahkan & Tidak adanya error yang muncul

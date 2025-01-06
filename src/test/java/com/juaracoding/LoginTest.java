@@ -1,6 +1,7 @@
 package com.juaracoding;
 
 import com.juaracoding.pages.LoginPage;
+import com.juaracoding.pages.LoginUser;
 import com.juaracoding.utils.Constants;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -19,6 +20,7 @@ public class LoginTest {
 
     private static LoginPage loginPage = new LoginPage();
 
+
     public LoginTest(){
         driver = Hooks.driver;
         extentTest = Hooks.extentTest;
@@ -35,7 +37,7 @@ public class LoginTest {
     @Given("I am logged in with email {string} and password {string}")
     public void i_am_logged_in_with_email_and_password(String email, String password) {
         driver.get(Constants.URLUser);
-        Assert.assertEquals(driver.getCurrentUrl(), Constants.URL);
+        Assert.assertEquals(driver.getCurrentUrl(), Constants.URLUser);
         loginPage.loginUser(email, password);
         loginPage.setBtnLogin();
         extentTest.log(LogStatus.PASS, "I am logged in with email "+email+" and password "+password);
@@ -48,7 +50,8 @@ public class LoginTest {
     }
 
     @And("I click the login button")
-    public void i_click_the_login_button(){
+    public void i_click_the_login_button() throws InterruptedException {
+        Thread.sleep(1000);
         loginPage.setBtnLogin();
         extentTest.log(LogStatus.PASS, "I click the login button");
     }
@@ -66,7 +69,5 @@ public class LoginTest {
         Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/absen/login");
         extentTest.log(LogStatus.PASS, "User failed to login");
     }
-
-    
 
 }

@@ -152,7 +152,8 @@ public class KalenderSteps {
     }
 
     @Then("Data table ter-reset ulang seperti kondisi awal")
-    public void data_table_ter_reset_ulang_sebagai_kondisi_awal() {
+    public void data_table_ter_reset_ulang_sebagai_kondisi_awal() throws InterruptedException {
+        Thread.sleep(2000);
         Assert.assertEquals(driver.getCurrentUrl(),"https://magang.dikahadir.com/management/calendar");
         extentTest.log(LogStatus.PASS,"Data table ter-reset ulang seperti kondisi awal");
         // Implementasi verifikasi bahwa data table ter-reset ulang seperti kondisi awal

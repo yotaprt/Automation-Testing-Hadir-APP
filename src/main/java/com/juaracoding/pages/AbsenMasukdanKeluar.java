@@ -43,6 +43,7 @@ public class AbsenMasukdanKeluar {
     @FindBy(xpath = "//li[@class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected css-1fh5cnl']" )
     private WebElement btnTipeAbsenMasukWFO;
 
+
     @FindBy(xpath = "//li[@class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-1fh5cnl']")
     private WebElement btnTipeAbsenMasukWFH;
 
@@ -61,6 +62,12 @@ public class AbsenMasukdanKeluar {
     @FindBy(css = ".MuiButton-fullWidth")
     private WebElement btnSubmitAbsenMasuk;
 
+    @FindBy(xpath = "//p[.='Akses kamera harus diizinkan']")
+    private WebElement txtKameraMati;
+    public WebElement getTxtKameraMati() {
+        return txtKameraMati;
+    }
+
     public void loginUser(String username, String password){
       this.email.sendKeys(username);
       this.password.sendKeys(password);
@@ -76,14 +83,17 @@ public class AbsenMasukdanKeluar {
      btnLogin.click();
  }
 
+ public void setBtnAbsenMasukTanpaSelfie(){
+     btnAbsenMasuk.click();
+ }
  public void setBtnAbsenMasuk(){
      btnAbsenMasuk.click();
      try {
         Robot robot = new Robot();
         robot.delay(4000);
         robot.keyPress(KeyEvent.VK_TAB);
-        robot.keyRelease(KeyEvent.VK_TAB);
-        robot.keyPress(KeyEvent.VK_TAB);
+        robot.keyRelease(KeyEvent.VK_TAB); 
+        robot.keyPress(KeyEvent.VK_TAB);  
         robot.keyPress(KeyEvent.VK_ENTER);
     } catch (Exception e) {
         e.printStackTrace();
@@ -100,6 +110,10 @@ public void setBtnAbsenMasukKameraMati(){
    } catch (Exception e) {
        e.printStackTrace();
    }
+}
+
+public void setBtnAbsenMasukNonselfie(){
+    btnAbsenMasuk.click();
 }
 
  public void setBtnShootCamera(){

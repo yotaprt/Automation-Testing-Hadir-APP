@@ -15,7 +15,6 @@ Feature: Laporan Izin Terlambat
     And Displaying Tanggal Izin column
     And Displaying Status column
 
-
   Scenario: Search data Laporan Izin Terlambat berdasarkan nama User
     Given The user has successfully logged in as an admin
     When The user navigates to the Laporan Izin Terlambat page

@@ -30,14 +30,16 @@ public class LogoutTest {
 
     @Given("User already logged in")
     public void Useralreadyloggedin(){
-        driver.get(Constants.URL);
-        loginPage.loginvalid("admin@hadir.com","admin@hadir");
+        driver.get(Constants.URLUser);
+        loginPage.loginvalid("zaki1@test.com","zakiyanto123");
+        loginPage.setBtnLogin();
         extentTest.log(LogStatus.PASS,"User already logged in");
         // extentTest.log(LogStatus.PASS,"I am on the login page");
     }
 
     @When("User click proflie")
-    public void KlikUserProfile(){
+    public void KlikUserProfile() throws InterruptedException {
+        Thread.sleep(2000);
         logoutPage.setBtnProfile();
         extentTest.log(LogStatus.PASS,"User click proflie");
         // extentTest.log(LogStatus.PASS,"I enter a valid username and password");
@@ -45,7 +47,7 @@ public class LogoutTest {
 
     @And("User click logout button")
     public void Userclicklogoutbutton() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         logoutPage.setBtnLogout();
         extentTest.log(LogStatus.PASS,"User click logout button");
     }
@@ -54,6 +56,6 @@ public class LogoutTest {
     public void Usernavigatedtotheloginpage()throws InterruptedException {
         Thread.sleep(2000);
         extentTest.log(LogStatus.PASS,"User navigated to the login page");
-        Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/authentication/login");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://magang.dikahadir.com/absen/login");
     }
 }
